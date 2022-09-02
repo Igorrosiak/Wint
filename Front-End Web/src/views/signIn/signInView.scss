@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main.signIn{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    background-color: #5f1586;
+}
+
+article.image{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div.box-image{
+        width: 100%;
+        height: 60%;
+    
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+article.login-area{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div.form{
+        width: 50%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+    }
+}
