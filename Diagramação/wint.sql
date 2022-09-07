@@ -15,7 +15,7 @@ CREATE TABLE userAPI(
 CREATE TABLE post(
 	id_post serial PRIMARY KEY NOT NULL,
 	id_user int,
-	description varchar(100),
+	content varchar(100),
 	FOREIGN KEY (id_user) REFERENCES userAPI(id_user)
 );
 
