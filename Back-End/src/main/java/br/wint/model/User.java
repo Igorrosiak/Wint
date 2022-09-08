@@ -61,9 +61,9 @@ public class User {
 
     private Date creationDate;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userPosting")
     private List<Post> posts;
 
-    @OneToMany(mappedBy = "user")
-    private List<Comment> comments;
+    @OneToMany(mappedBy = "userCommenting")
+    private List<Comment> userComments;
 }

@@ -1,8 +1,15 @@
 package br.wint.model;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Getter
+@Setter
+@ToString
 @Entity(name = "comment")
 public class Comment {
 
@@ -13,12 +20,10 @@ public class Comment {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "postCommented_id")
-    private Post postCommented;
-
-    @ManyToOne
     @JoinColumn(name = "userCommenting_id")
     private User userCommenting;
 
-
+    @ManyToOne
+    @JoinColumn(name = "postCommented_id")
+    private Post postCommented;
 }

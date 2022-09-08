@@ -7,6 +7,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,4 +27,7 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "userPosting_id")
     private User userPosting;
+
+    @OneToMany(mappedBy = "postCommented")
+    private List<Comment> postComments;
 }
