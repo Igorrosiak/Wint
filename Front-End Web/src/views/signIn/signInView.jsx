@@ -13,8 +13,8 @@ export const SignInView = _ => {
             <article className="login-area">
                 <div className="form">
                     <img src={textWint} alt="Logo Wint" />
-                    <input type="text" placeholder="LOGIN" />
-                    <input type="text" placeholder="SENHA" />
+                    <input type="text" placeholder="  LOGIN" />
+                    <input type="text" placeholder="  SENHA" />
                     <small>ESQUECEU A SENHA?</small>
                     <button>ENTRAR</button>
                     <p>NÃO TEM UMA CONTA? <a href="canva.com">CADASTRE-SE</a></p>
