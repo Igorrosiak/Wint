@@ -39,7 +39,7 @@ article.login-area{
     justify-content: center;
 
     div.form {
-        width: 80%;
+        width: 90%;
         height: 80%;
         display: flex;
         flex-direction: column;
@@ -49,14 +49,65 @@ article.login-area{
     input{
         background: transparent;
         border-color: white;
-        margin-top: 5%;
+        margin-top: 2%;
         height: 200%;
+        border: 0;
+        border-bottom: 2px solid #b17bff;
+        border-radius: 0%;
+        padding-left: 10px;
+        font-size: 20px;
+        color: white;
+        margin-bottom: 20px;
+        font-family: 'Goblin One', cursive;
+
+    }
+
+    input::placeholder{
+        color:white
     }
 
     small{
-        font-size: 100%;
+        font-size: 90%;
         color: white;
         padding-left: 70%;
+        margin-bottom: 15px;
+        font-family: 'Goblin One', cursive;
     }
 
+    button{
+        width: 450px;
+        margin-bottom: 5%;
+        margin-top: 2%;
+        font-size: 30px;
+        border-radius: 30px;
+        border: 0;
+        text-align: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: 'Goblin One', bold;
+        color: #2c1583;
+    }
+
+    article.images{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    img.appStore{
+        width: 200px;   
+        margin-top: 6%;     
+    }
+
+    img.googlePlay{
+        width: 185px;
+        margin-left: 25px;      
+    }
+
+    div.texto{
+        font-size: 15px;
+        color: white;
+        font-family: 'Goblin One', cursive;
+    }
 }
