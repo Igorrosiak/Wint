@@ -6,6 +6,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -19,8 +20,11 @@ public class Comment {
     @Column(unique = true)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "userCommenting_id")
+    @NotNull
+    @Size(max = 100)
+    private String content;
+
+    @NotNull
     private User userCommenting;
 
     @ManyToOne
