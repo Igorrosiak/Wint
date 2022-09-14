@@ -13,12 +13,11 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
-@Entity(name = "user")
+@Entity(name = "user_tb")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
     @Column(unique = true)
     private Long id;
 
@@ -63,7 +62,4 @@ public class User {
 
     @OneToMany(mappedBy = "userPosting")
     private List<Post> posts;
-
-    @OneToMany(mappedBy = "userCommenting")
-    private List<Comment> userComments;
 }
