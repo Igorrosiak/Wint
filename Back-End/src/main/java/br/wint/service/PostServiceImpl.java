@@ -3,11 +3,6 @@ package br.wint.service;
 import br.wint.model.Post;
 import br.wint.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.core.GrantedAuthority;
-//import org.springframework.security.core.authority.SimpleGrantedAuthority;
-//import org.springframework.security.core.userdetails.UserDetails;
-//import org.springframework.security.core.userdetails.UsernameNotFoundException;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,7 +33,7 @@ public class PostServiceImpl implements PostService{
     public Post update(Long id, Post post){
         Optional<Post> updatePost = postRepository.findById(id);
         if (!updatePost.isEmpty()){
-            updatePost.get().setFirstName(post.getFirstName());
+            updatePost.get().setContent(post.getContent());
             return postRepository.save(updatePost.get());
         } else {
             return null;
@@ -48,13 +43,10 @@ public class PostServiceImpl implements PostService{
     @Override
     public Post save(Post post) {
         try {
-//            String newPassword = new BCryptPasswordEncoder().encode(user.getPassword());
-//            user.setPassword(newPassword);
             return postRepository.save(post);
         }
         catch (Exception e){ throw e; }
     }
-
 
     @Override
     public boolean delete(Long id) {
