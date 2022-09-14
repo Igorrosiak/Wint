@@ -3,11 +3,11 @@ package br.wint.service;
 import br.wint.model.User;
 import br.wint.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Optional<User> read(Long id) {
+    public Optional<User> findById(Long id) {
         return userRepository.findById(id);
     }
 
@@ -39,8 +39,16 @@ public class UserServiceImpl implements UserService{
         Optional<User> updateUser = userRepository.findById(id);
         if (!updateUser.isEmpty()){
             updateUser.get().setFirstName(user.getFirstName());
+            updateUser.get().setLastName(user.getLastName());
+            updateUser.get().setBirthDate(user.getBirthDate());
             updateUser.get().setUsername(user.getUsername());
+            updateUser.get().setEmail(user.getEmail());
+            updateUser.get().setPhoneNumber(user.getPhoneNumber());
+            updateUser.get().setBiography(user.getBiography());
             updateUser.get().setPassword(user.getPassword());
+            updateUser.get().setDeleted(user.isDeleted());
+            updateUser.get().setInative(user.isInative());
+            updateUser.get().setCreationDate(user.getCreationDate());
             return userRepository.save(updateUser.get());
         } else {
             return null;
@@ -50,8 +58,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public User save(User user) {
         try {
-            String newPassword = new BCryptPasswordEncoder().encode(user.getPassword());
-            user.setPassword(newPassword);
+//            String newPassword = new BCryptPasswordEncoder().encode(user.getPassword());
+//            user.setPassword(newPassword);
             return userRepository.save(user);
         }
         catch (Exception e){ throw e; }

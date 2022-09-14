@@ -25,6 +25,8 @@ public class Comment {
     private String content;
 
     @NotNull
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User userCommenting;
 
     @ManyToOne
