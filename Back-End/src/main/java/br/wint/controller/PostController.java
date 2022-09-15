@@ -64,7 +64,9 @@ public class PostController {
 
     @GetMapping(value = "/", produces = "application/json")
     public ResponseEntity<List<Post>> findAll() {
+        System.out.println("GET funcionando");
         List<Post> allPosts = postServiceImpl.findAll();
+        System.out.println("Posts" + allPosts);
         if (allPosts.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {

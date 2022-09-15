@@ -1,5 +1,6 @@
 package br.wint.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,7 +12,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
 @Entity(name = "user_tb")
 public class User {
 
@@ -53,5 +53,24 @@ public class User {
     private Date creationDate;
 
     @OneToMany(mappedBy = "userPosting")
+    @JsonIgnore
     private List<Post> posts;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthDate=" + birthDate +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", biography='" + biography + '\'' +
+                ", password='" + password + '\'' +
+                ", isDeleted=" + isDeleted +
+                ", isInative=" + isInative +
+                ", creationDate=" + creationDate +
+                '}';
+    }
 }

@@ -1,5 +1,6 @@
 package br.wint.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,17 +18,24 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull
     @Column(unique = true)
     private Long id;
 
     @Size(max = 300)
-    private String content;
+    private String contentPost;
 
     @ManyToOne
-    @JoinColumn(name = "userPosting_id")
+    @JoinColumn(name = "userPosting_id" )
     private User userPosting;
 
-    @OneToMany(mappedBy = "postCommented")
-    private List<Comment> postComments;
+//    @OneToMany(mappedBy = "postCommented")
+//    private List<Comment> postComments;
+
+//    @Override
+//    public String toString() {
+//        return "Post{" +
+//                "id=" + id +
+//                ", contentPost='" + contentPost + '\'' +
+//                '}';
+//    }
 }

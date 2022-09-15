@@ -33,7 +33,7 @@ public class CommentServiceImpl implements CommentService{
     public Comment update(Long id, Comment comment) {
         Optional<Comment> updateComment = commentRepository.findById(id);
         if (!updateComment.isEmpty()){
-            updateComment.get().setContent(comment.getContent());
+            updateComment.get().setContentComment(comment.getContentComment());
             return commentRepository.save(updateComment.get());
         } else {
             return null;
