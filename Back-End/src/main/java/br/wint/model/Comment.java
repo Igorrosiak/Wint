@@ -8,23 +8,28 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Getter
-@Setter
 @Entity(name = "comment")
 public class Comment {
 
+    @Getter
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true)
     private Long id;
 
+    @Getter
+    @Setter
     @Size(max = 100)
     private String contentComment;
 
+    @Getter
+    @Setter
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userCommenting_id")
     private User userCommenting;
 
+    @Setter
     @ManyToOne
     @JoinColumn(name = "postCommented_id")
     private Post postCommented;
@@ -34,6 +39,7 @@ public class Comment {
         return "Comment{" +
                 "id=" + id +
                 ", contentComment='" + contentComment + '\'' +
+                ", userCommenting=" + userCommenting +
                 '}';
     }
 }
