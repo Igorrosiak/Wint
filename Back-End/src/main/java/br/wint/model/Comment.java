@@ -23,7 +23,6 @@ public class Comment {
     @Size(max = 100)
     private String contentComment;
 
-    @Getter
     @Setter
     @ManyToOne
     @JoinColumn(name = "userCommenting_id")
