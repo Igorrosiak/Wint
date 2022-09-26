@@ -9,41 +9,41 @@ export const SignUpView = _ => {
             </div>
             <div className="form-singup">
                 <div class="label-float">
-                    <input type="text" placeholder=" "/>
-                    <label>Telefone</label>
-                    </div>
-                    <div class="label-float">
-                    <input type="text" placeholder=" " required/>
+                    <input type="text" placeholder=" " />
+                    <label>Nome</label>
+                </div>
+                <div class="label-float">
+                    <input type="text" placeholder=" " required />
+                    <label>Sobrenome</label>
+                </div>
+                <div class="label-float">
+                    <input type="date" placeholder=" " />
+                    <label>Data de Nascimento</label>
+                </div>
+                <div class="label-float">
+                    <input type="text" placeholder=" " required />
                     <label>Nome de Usuário</label>
                 </div>
                 <div class="label-float">
-                    <input type="text" placeholder=" "/>
-                    <label>Telefone</label>
-                    </div>
-                    <div class="label-float">
-                    <input type="text" placeholder=" " required/>
-                    <label>Nome de Usuário</label>
+                    <input type="text" placeholder=" " />
+                    <label>Email</label>
                 </div>
                 <div class="label-float">
-                    <input type="text" placeholder=" "/>
+                    <input type="text" placeholder=" " required />
                     <label>Telefone</label>
-                    </div>
-                    <div class="label-float">
-                    <input type="text" placeholder=" " required/>
-                    <label>Nome de Usuário</label>
                 </div>
                 <div class="label-float">
-                    <input type="text" placeholder=" "/>
-                    <label>Telefone</label>
-                    </div>
-                    <div class="label-float">
-                    <input type="text" placeholder=" " required/>
-                    <label>Nome de Usuário</label>
+                    <input type="password" placeholder=" " />
+                    <label>Senha</label>
+                </div>
+                <div class="label-float">
+                    <input type="password" placeholder=" " required />
+                    <label>Confirmar Senha</label>
                 </div>
             </div>
-            
+
             <div className="checkbox-terms">
-                <input type="checkbox"id="terms" className="terms-checkbox"/>
+                <input type="checkbox" id="terms" className="terms-checkbox" />
                 <label htmlFor="terms"> Concordo com os <a href="">Termos, Política de Privacidade e Política de Cookies</a>.</label>
             </div>
 

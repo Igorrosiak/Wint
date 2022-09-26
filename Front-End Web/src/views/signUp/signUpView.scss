@@ -6,14 +6,38 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: white;
     text-decoration: none;
-    background-color: rgb(44, 21, 134);
-    overflow-x: hidden;
+}
+
+body{
+    overflow: hidden;
+    background: linear-gradient(270deg, #25229b, #2c1586, #5c2ca0);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 20s ease infinite;
+    -moz-animation: AnimationName 20s ease infinite;
+    -o-animation: AnimationName 20s ease infinite;
+    animation: AnimationName 20s ease infinite;  
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 main.singUp {
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
     display: inline-block;
     align-items: center;
     text-align: center;
@@ -26,7 +50,7 @@ main.singUp {
         }
 
         input.terms-checkbox {
-            height: 25px;
+            height: 20px;
             width: 25px;
             color: rgb(192, 49, 49);
             border: solid 1px whitesmoke;
@@ -61,7 +85,7 @@ main.singUp {
         .label-float {
             position: relative;
             padding-top: 20px;
-            padding-bottom: 10px;
+            padding-bottom: 18px;
             width: 34%;
             display: inline-flex;
         }
@@ -70,13 +94,14 @@ main.singUp {
             border: 0;
             border-bottom: 2px solid lightgrey;
             outline: none;
-            min-width: 180px;
-            font-size: 30px;
+            min-width: 350px;
+            font-size: 15px;
             transition: all .3s ease-out;
             -webkit-transition: all .3s ease-out;
             -moz-transition: all .3s ease-out;
             -webkit-appearance: none;
             border-radius: 0;
+            background-color: transparent;
         }
 
         .label-float input:focus {
@@ -112,7 +137,7 @@ main.singUp {
 
         .label-float input:focus+label,
         .label-float input:not(:placeholder-shown)+label {
-            font-size: 15px;
+            font-size: 12px;
             margin-top: 0;
             color: #ffffff;
         }
@@ -120,6 +145,7 @@ main.singUp {
 
     .button-singup{
         margin-top: 2%;
+        background-color: transparent;
         button{
             background-color: azure;
             border-radius: 20px;
@@ -130,5 +156,20 @@ main.singUp {
             font-weight: 500;
         }
     }
+}
 
+@media only screen and (max-width: 600px) {
+    .form-singup{
+        
+        .label-float{
+            display: block;
+            
+        }
+
+        .label-float input {
+            min-width: 120px;
+            font-size: 12px;
+
+        }
+    }
 }
