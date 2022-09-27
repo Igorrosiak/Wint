@@ -46,9 +46,6 @@ public class UserServiceImpl implements UserService{
             updateUser.get().setPhoneNumber(user.getPhoneNumber());
             updateUser.get().setBiography(user.getBiography());
             updateUser.get().setPassword(user.getPassword());
-            updateUser.get().setDeleted(user.isDeleted());
-            updateUser.get().setInative(user.isInative());
-            updateUser.get().setCreationDate(user.getCreationDate());
             return userRepository.save(updateUser.get());
         } else {
             return null;

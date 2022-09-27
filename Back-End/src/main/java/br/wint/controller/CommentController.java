@@ -1,7 +1,7 @@
 package br.wint.controller;
 
-import br.wint.model.Post;
-import br.wint.service.PostServiceImpl;
+import br.wint.model.Comment;
+import br.wint.service.CommentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,24 +13,24 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("post")
-public class PostController {
+@RequestMapping("comment")
+public class CommentController {
 
     @Autowired
-    PostServiceImpl postServiceImpl;
+    CommentServiceImpl commentServiceImpl;
 
     @PostMapping(value = "/", produces = "application/json")
-    public ResponseEntity<Post> create(@RequestBody Post post)
+    public ResponseEntity<Comment> create(@RequestBody Comment comment)
             throws URISyntaxException{
-        Post createdPost = postServiceImpl.create(post);
-        if (createdPost == null) {
+        Comment createdComment = commentServiceImpl.create(comment);
+        if (createdComment == null) {
             return ResponseEntity.notFound().build();
         } else {
             URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                     .path("/{id}")
-                    .buildAndExpand(createdPost.getId())
+                    .buildAndExpand(createdComment.getId())
                     .toUri();
-            return ResponseEntity.created(uri).body(createdPost);
+            return ResponseEntity.created(uri).body(createdComment);
         }
     }
 
@@ -39,44 +39,42 @@ public class PostController {
     // ResponseEntity resposta do servidor ao front-end (também é JSON)
 
     @PutMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Post> update(@RequestBody Post post, @PathVariable Long id) {
-        Post updatedPost = postServiceImpl.update(id, post);
-        if (updatedPost == null) {
+    public ResponseEntity<Comment> update(@RequestBody Comment comment, @PathVariable Long id) {
+        Comment updatedComment = commentServiceImpl.update(id, comment);
+        if (updatedComment == null) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(updatedPost);
+            return ResponseEntity.ok(updatedComment);
         }
     }
 
     // PathVariable manipula as URI's e define os id's como parâmetros
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Optional<Post>> findById(@PathVariable Long id) {
-        Optional<Post> foundPost = postServiceImpl.findById(id);
-        if (foundPost.isEmpty()) {
+    public ResponseEntity<Optional<Comment>> findById(@PathVariable Long id) {
+        Optional<Comment> foundComment = commentServiceImpl.findById(id);
+        if (foundComment.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(foundPost);
+            return ResponseEntity.ok(foundComment);
         }
     }
 
     // isEmpty verifica se o tamanho é 0
 
     @GetMapping(value = "/", produces = "application/json")
-    public ResponseEntity<List<Post>> findAll() {
-        System.out.println("GET funcionando");
-        List<Post> allPosts = postServiceImpl.findAll();
-        System.out.println("Posts" + allPosts);
-        if (allPosts.isEmpty()) {
+    public ResponseEntity<List<Comment>> findAll() {
+        List<Comment> allComments = commentServiceImpl.findAll();
+        if (allComments.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(allPosts);
+            return ResponseEntity.ok(allComments);
         }
     }
 
     @DeleteMapping(value = "/{id}", produces = "application/json")
     private ResponseEntity<Object> delete(@PathVariable Long id) {
-        if (postServiceImpl.delete(id)) {
+        if (commentServiceImpl.delete(id)) {
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
