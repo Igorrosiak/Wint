@@ -2,10 +2,8 @@ package br.wint.model;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity(name = "comment")
@@ -38,7 +36,6 @@ public class Comment {
         return "Comment{" +
                 "id=" + id +
                 ", contentComment='" + contentComment + '\'' +
-                ", userCommenting=" + userCommenting +
                 '}';
     }
 }
