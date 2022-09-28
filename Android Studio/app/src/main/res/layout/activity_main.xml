@@ -18,58 +18,17 @@
             android:id="@+id/imageView"
             android:layout_width="251dp"
             android:layout_height="0dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="52dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/wint" />
 
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="272dp"
-            android:layout_height="88dp"
-            android:layout_marginTop="48dp"
-            android:backgroundTint="#B17BFF"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text=" Login"
-            android:textColor="#B17BFF"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-        <Button
-            android:id="@+id/buttonEntrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
-            android:linksClickable="false"
-            android:text="entrar"
-            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="272dp"
-            android:layout_height="88dp"
-            android:layout_marginTop="24dp"
-            android:backgroundTint="#B17BFF"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Senha"
-            android:textColor="#B17BFF"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="259dp"
             android:layout_height="27dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:text="NÃO TEM UMA CONTA? CADASTRE-SE"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
@@ -81,12 +40,56 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="8dp"
             android:text="Esqueci minha senha"
             android:textColor="#FFFF"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+
+        <Button
+            android:id="@+id/buttonEntrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="88dp"
+            android:linksClickable="false"
+            android:text="entrar"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintHorizontal_bias="0.521"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="272dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="28dp"
+            android:backgroundTint="#B17BFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Senha"
+            android:textColor="#B17BFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+        <EditText
+            android:id="@+id/editTextTextPersonName"
+            android:layout_width="272dp"
+            android:layout_height="88dp"
+            android:layout_marginTop="56dp"
+            android:backgroundTint="#B17BFF"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=" Login"
+            android:textColor="#B17BFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
