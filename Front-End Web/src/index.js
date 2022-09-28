@@ -12,7 +12,7 @@ root.render(
     <Routes>
       <Route path="/" element={<SignUpView/>} />
       <Route path="/login" element={<SignInView/>} />
-      <Route path="/myprofile" element={<ProfileView/>} />
+      <Route path="/my-profile" element={<ProfileView/>} />
     </Routes>
   </BrowserRouter>
 );
