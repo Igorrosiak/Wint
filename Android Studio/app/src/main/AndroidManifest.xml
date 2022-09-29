@@ -14,7 +14,10 @@
         android:theme="@style/Theme.Wint"
         tools:targetApi="31">
         <activity
-            android:name=".Cadastrar"
+            android:name=".FeedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CadastrarActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -18,7 +18,7 @@
             android:id="@+id/imageView"
             android:layout_width="251dp"
             android:layout_height="0dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="36dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,12 +29,14 @@
             android:layout_width="259dp"
             android:layout_height="27dp"
             android:layout_marginTop="24dp"
+            android:onClick="abrirCadastro"
             android:text="NÃO TEM UMA CONTA? CADASTRE-SE"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/buttonEntrar" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonEntrar"
+            tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
             android:id="@+id/textView3"
@@ -51,11 +53,12 @@
             android:id="@+id/buttonEntrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="88dp"
+            android:layout_marginTop="56dp"
             android:linksClickable="false"
+            android:onClick="abrirFeed"
             android:text="entrar"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintHorizontal_bias="0.521"
+            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
@@ -63,15 +66,15 @@
             android:id="@+id/editTextTextPersonName2"
             android:layout_width="272dp"
             android:layout_height="88dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#B17BFF"
             android:ems="10"
+            android:hint="Senha"
             android:inputType="textPersonName"
-            android:text="Senha"
             android:textColor="#B17BFF"
+            android:textColorHint="#B17BFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
@@ -79,24 +82,25 @@
             android:id="@+id/editTextTextPersonName"
             android:layout_width="272dp"
             android:layout_height="88dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="52dp"
             android:backgroundTint="#B17BFF"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text=" Login"
+            android:text=" "
             android:textColor="#B17BFF"
+            android:textColorHint="#B17BFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:text="Login" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.15" />
+            app:layout_constraintGuide_percent="0.16" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
@@ -104,5 +108,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.83" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
