@@ -4,31 +4,32 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 main.myProfile{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     background-color:rgb(44, 21, 134);
-    
+    background-image: linear-gradient(to right, rgb(44, 21, 134), #7339d6)
 }
 
 article.cabecalho{
     width: 100%;
-    height: 20vh;
+    height: 50vh;
     display: flex;
     justify-content: left;
-    margin-left: 80px;
-    margin-top: 55px;
-    position: relative;
+    margin-left: 7%;
+    margin-top: 4%;
+    
 
     
 div.imgUserIcon{
     img{
-        width: 7em;
+        width: 7.5em;
     }
 }
 
@@ -37,11 +38,11 @@ div.imgUserIcon{
 div.imgEditIcon{
 
     img{
-        width: 1.4em;
+        width: 3%;
     }
 
     p{
-        font-size: 20px;
+        font-size: 30px;
         display: inline-block;
         padding-top: 27px;
         padding-left: 20px;
@@ -66,9 +67,9 @@ div.imgBack{
     width: 100%;
 
     img{
-        width: 5em;
-        margin-top: 5em;
-        margin-right: 2em;
+        width: 6%;
+        margin-top: 3em;
+        margin-right: 2.5em;
     }
 }
 
@@ -77,14 +78,13 @@ div.imgBack{
 article.images-box{
     width: 100%;
     height: 80vh;
-    background-color: rgb(44, 21, 134);
     padding-top: 6em;
     display: flex;
     justify-content: space-evenly;
 
     div.box{
         background-color: #b17bff;
-        height: 45vh;
-        width: 24.5vw;
+        height: 49.5vh;
+        width: 27vw;
     }
 }
