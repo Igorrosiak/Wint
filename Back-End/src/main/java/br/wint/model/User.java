@@ -73,4 +73,14 @@ public class User {
     @Getter
     @OneToMany(mappedBy = "userPosting")
     private List<Post> posts;
+
+    @Getter
+    @Setter
+    @ManyToMany
+    @JoinTable(
+            name = "user_permission",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "permission_id")
+    )
+    private List<Permission> permissions;
 }
