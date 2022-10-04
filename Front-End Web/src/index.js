@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { SignUpView } from './views/signUp/signUpView';
 import { SignInView } from './views/signIn/signInView';
-import { Feed } from './views/feed/feed';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +11,6 @@ root.render(
     <Routes>
       <Route path="/" element={<SignUpView/>} />
       <Route path="/login" element={<SignInView/>} />
-      <Route path="/feed" element={<Feed/>} />
     </Routes>
   </BrowserRouter>
 );
