@@ -23,4 +23,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), FeedActivity.class);
         startActivity(intent);
     }
+
+    public void esqueciSenha(View v){
+        Intent intent = new Intent(getApplicationContext(), RecSenhaActivity.class);
+        startActivity(intent);
+    }
 }

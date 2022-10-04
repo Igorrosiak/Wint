@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/gradient"
+        android:onClick="esqueciSenha"
         tools:context=".MainActivity">
 
 
@@ -42,41 +43,26 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:text="Esqueci minha senha"
             android:textColor="#FFFF"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword4" />
 
         <Button
             android:id="@+id/buttonEntrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="57dp"
+            android:backgroundTint="#2C1586"
             android:linksClickable="false"
             android:onClick="abrirFeed"
             android:text="entrar"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName2"
-            android:layout_width="272dp"
-            android:layout_height="88dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#B17BFF"
-            android:ems="10"
-            android:hint="Senha"
-            android:inputType="textPersonName"
-            android:textColor="#B17BFF"
-            android:textColorHint="#B17BFF"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword4" />
 
         <EditText
             android:id="@+id/editTextTextPersonName"
@@ -85,15 +71,14 @@
             android:layout_marginTop="52dp"
             android:backgroundTint="#B17BFF"
             android:ems="10"
+            android:hint="Login"
             android:inputType="textPersonName"
-            android:text=" "
             android:textColor="#B17BFF"
             android:textColorHint="#B17BFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            tools:text="Login" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -108,6 +93,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.83" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword4"
+            android:layout_width="274dp"
+            android:layout_height="91dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#B17BFF"
+            android:ems="10"
+            android:hint="Senha"
+            android:inputType="textPassword"
+            android:textColorHint="#B17BFF"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
