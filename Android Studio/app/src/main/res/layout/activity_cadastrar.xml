@@ -168,7 +168,7 @@
             android:layout_height="52dp"
             android:layout_marginTop="24dp"
             android:buttonTint="#ffffff"
-            android:checked="true"
+            android:checked="false"
             android:text="Concordo com os Termos, Política de Privacidade e Política de Cookies."
             android:textColor="#ffffff"
             app:layout_constraintEnd_toStartOf="@+id/guideline5"
