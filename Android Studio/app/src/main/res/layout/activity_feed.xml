@@ -32,8 +32,19 @@
             android:text="teste"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.979" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="77dp"
+            android:layout_height="54dp"
+            android:onClick="perfil"
+            app:srcCompat="@android:drawable/sym_def_app_icon"
+            tools:layout_editor_absoluteX="167dp"
+            tools:layout_editor_absoluteY="32dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

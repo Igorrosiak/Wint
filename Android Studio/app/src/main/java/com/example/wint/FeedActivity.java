@@ -21,4 +21,10 @@ public class FeedActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), EditarPerfilActivity.class);
         startActivity(intent);
     }
+
+    public void perfil(View v){
+        Intent intent = new Intent(getApplicationContext(), MeuPerfilActivity.class);
+        startActivity(intent);
+    }
+
 }
