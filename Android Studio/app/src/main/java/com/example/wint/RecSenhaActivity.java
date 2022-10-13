@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class RecSenhaActivity extends AppCompatActivity {
 
@@ -13,6 +14,7 @@ public class RecSenhaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rec_senha);
     }
+
     public void voltar(View v){
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
