@@ -1,53 +1,30 @@
-import user from "../../assets/images/user.png"
-import edit from "../../assets/images/editar.png"
-import back from "../../assets/images/back.png"
+import logoWint from '../../assets/images/logo-completa-wint.svg'
 import "./profileView.scss"
+import "./navbar.scss"
 
 export const ProfileView = _ => {
     return (
         <main className="myProfile">
-            <article className="cabecalho">
-                <div className="imgUserIcon">
-                    <img src={user} alt="userIcon" />
-                </div>
+            <div className="nav-bar">
+                <img className='logo' src={logoWint} alt="" onClick={() => { window.location.href = "/" }} />
+                <input class="menu-btn" type="checkbox" id="menu-btn" />
+                <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+                <ul class="menu">
+                    <li className='menu-item'>
+                        <a href='#objectives' className="menu-link">Skills</a>
+                    </li>
+                    <li className='menu-item'>
+                        <a href='#participants' className="menu-link">Portfolio</a>
+                    </li>
+                    <li className='menu-item'>
+                        <a href='#steps' className="menu-link">Experiencias</a>
+                    </li>
+                    <li className='menu-item'>
+                        <a href='#prices' className="menu-link">Blog</a>
+                    </li>
+                </ul>
+            </div>
 
-                <div className="imgEditIcon">
-                    <p>Nome de Usuário</p>
-                    <img src={edit} alt="editIcon" />
-                    <p className="bio">biografia do Usuário cadastrado</p>
-                </div>
-            </article>
-
-            <div className="imgBack">
-                    <img src={back} alt="backIcon"/>
-                </div>
-
-
-            <article className="images-box">
-
-                <div className="box">
-
-                </div>
-                <div className="box">
-
-                </div>
-                <div className="box">
-
-                </div>
-            </article>
-
-            <article className="images-box">
-
-                <div className="box">
-
-                </div>
-                <div className="box">
-
-                </div>
-                <div className="box">
-
-                </div>
-            </article>
         </main>
     )
 }
