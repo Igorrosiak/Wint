@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Plus+Jakarta+Sans:wght@700&display=swap');
+
+*{
+    margin: 0;
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h4{
+    color: #656D72;
+    margin-top: 20px;
+    font-size: 12px;
+    font-family: 'Inter';
+    line-height: 24px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+h1{
+    color: #232E35;
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+}
