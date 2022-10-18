@@ -1,6 +1,8 @@
 package br.wint.service;
 
 import br.wint.model.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.List;
 import java.util.Optional;
