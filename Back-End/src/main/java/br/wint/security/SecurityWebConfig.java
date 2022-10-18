@@ -1,6 +1,8 @@
 package br.wint.security;
 
+import br.wint.model.User;
 import br.wint.service.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,6 +12,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.config.Customizer.withDefaults;
@@ -33,13 +36,13 @@ public class SecurityWebConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/").permitAll()
+                    .antMatchers("/**").permitAll()
                     .antMatchers("/cadastro").permitAll()
                     .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                    .loginPage("/")
-                    .defaultSuccessUrl("home", true)
+                    .loginPage("/login")
+                    .defaultSuccessUrl("/home", true)
                     .permitAll()
                 .and()
                 .rememberMe(withDefaults());
@@ -49,5 +52,10 @@ public class SecurityWebConfig {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring().antMatchers("/css", "/js");
+    }
+
+    @Bean
+    public PasswordEncoder passwordEnconder(){
+        return new BCryptPasswordEncoder();
     }
 }
