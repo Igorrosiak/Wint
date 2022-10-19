@@ -24,8 +24,8 @@ public class Post {
 
     @Setter
     @ManyToOne
-    @JoinColumn(name = "userPosting_id")
-    private User userPosting;
+    @JoinColumn(name = "portfolioFromPost_id")
+    private Portfolio portfolioFromPost;
 
     @Getter
     @OneToMany(mappedBy = "postCommented")
