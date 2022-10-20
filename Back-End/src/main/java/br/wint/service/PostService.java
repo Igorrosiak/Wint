@@ -14,5 +14,5 @@ public interface PostService {
     public boolean delete(Long id);
     public Post save(Post post);
 
-    public List<Post> findByUserPosting(Long userId);
+//    public List<Post> findByUserPosting(Long userId);
 }

@@ -71,8 +71,8 @@ public class User {
     private Date creationDate;
 
     @Getter
-    @OneToMany(mappedBy = "userPosting")
-    private List<Post> posts;
+    @OneToMany(mappedBy = "userPortfolio")
+    private List<Portfolio> portfoliosByUser;
 
     @Getter
     @Setter
