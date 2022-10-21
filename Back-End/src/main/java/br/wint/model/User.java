@@ -79,6 +79,10 @@ public class User {
     private List<Skill> skillsList;
 
     @Getter
+    @OneToMany(mappedBy = "userExperiences")
+    private List<ProfessionalExperience> professionalExperiences;
+
+    @Getter
     @Setter
     @ManyToMany
     @JoinTable(

@@ -1,7 +1,7 @@
 package br.wint.controller;
 
 import br.wint.model.Post;
-import br.wint.service.SkillServiceImpl;
+import br.wint.service.PostServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +17,12 @@ import java.util.Optional;
 public class PostController {
 
     @Autowired
-    SkillServiceImpl skillServiceImpl;
+    PostServiceImpl postServiceImpl;
 
     @PostMapping(value = "/", produces = "application/json")
     public ResponseEntity<Post> create(@RequestBody Post post)
             throws URISyntaxException{
-        Post createdPost = skillServiceImpl.create(post);
+        Post createdPost = postServiceImpl.create(post);
         if (createdPost == null) {
             return ResponseEntity.notFound().build();
         } else {
@@ -40,7 +40,7 @@ public class PostController {
 
     @PutMapping(value = "/{id}", produces = "application/json")
     public ResponseEntity<Post> update(@RequestBody Post post, @PathVariable Long id) {
-        Post updatedPost = skillServiceImpl.update(id, post);
+        Post updatedPost = postServiceImpl.update(id, post);
         if (updatedPost == null) {
             return ResponseEntity.notFound().build();
         } else {
@@ -52,7 +52,7 @@ public class PostController {
 
     @GetMapping(value = "/{id}", produces = "application/json")
     public ResponseEntity<Optional<Post>> findById(@PathVariable Long id) {
-        Optional<Post> foundPost = skillServiceImpl.findById(id);
+        Optional<Post> foundPost = postServiceImpl.findById(id);
         if (foundPost.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
@@ -64,9 +64,7 @@ public class PostController {
 
     @GetMapping(value = "/", produces = "application/json")
     public ResponseEntity<List<Post>> findAll() {
-        System.out.println("GET funcionando");
-        List<Post> allPosts = skillServiceImpl.findAll();
-        System.out.println("Posts" + allPosts);
+        List<Post> allPosts = postServiceImpl.findAll();
         if (allPosts.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
@@ -76,7 +74,7 @@ public class PostController {
 
     @DeleteMapping(value = "/{id}", produces = "application/json")
     private ResponseEntity<Object> delete(@PathVariable Long id) {
-        if (skillServiceImpl.delete(id)) {
+        if (postServiceImpl.delete(id)) {
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
