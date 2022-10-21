@@ -75,6 +75,10 @@ public class User {
     private List<Portfolio> portfoliosByUser;
 
     @Getter
+    @OneToMany(mappedBy = "userFromSkill")
+    private List<Skill> skillsList;
+
+    @Getter
     @Setter
     @ManyToMany
     @JoinTable(
