@@ -1,6 +1,6 @@
 package br.wint.controller;
 
-import br.wint.model.Post;
+import br.wint.model.Skill;
 import br.wint.service.SkillServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,24 +13,24 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("post")
-public class PostController {
+@RequestMapping("skill")
+public class SkillController {
 
     @Autowired
     SkillServiceImpl skillServiceImpl;
 
     @PostMapping(value = "/", produces = "application/json")
-    public ResponseEntity<Post> create(@RequestBody Post post)
-            throws URISyntaxException{
-        Post createdPost = skillServiceImpl.create(post);
-        if (createdPost == null) {
+    public ResponseEntity<Skill> create(@RequestBody Skill skill)
+            throws URISyntaxException {
+        Skill createdSkill = skillServiceImpl.create(skill);
+        if (createdSkill == null) {
             return ResponseEntity.notFound().build();
         } else {
             URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                     .path("/{id}")
-                    .buildAndExpand(createdPost.getId())
+                    .buildAndExpand(createdSkill.getId())
                     .toUri();
-            return ResponseEntity.created(uri).body(createdPost);
+            return ResponseEntity.created(uri).body(createdSkill);
         }
     }
 
@@ -39,38 +39,38 @@ public class PostController {
     // ResponseEntity resposta do servidor ao front-end (também é JSON)
 
     @PutMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Post> update(@RequestBody Post post, @PathVariable Long id) {
-        Post updatedPost = skillServiceImpl.update(id, post);
-        if (updatedPost == null) {
+    public ResponseEntity<Skill> update(@RequestBody Skill skill, @PathVariable Long id) {
+        Skill updatedSkill = skillServiceImpl.update(id, skill);
+        if (updatedSkill == null) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(updatedPost);
+            return ResponseEntity.ok(updatedSkill);
         }
     }
 
     // PathVariable manipula as URI's e define os id's como parâmetros
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Optional<Post>> findById(@PathVariable Long id) {
-        Optional<Post> foundPost = skillServiceImpl.findById(id);
-        if (foundPost.isEmpty()) {
+    public ResponseEntity<Optional<Skill>> findById(@PathVariable Long id) {
+        Optional<Skill> foundSkill = skillServiceImpl.findById(id);
+        if (foundSkill.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(foundPost);
+            return ResponseEntity.ok(foundSkill);
         }
     }
 
     // isEmpty verifica se o tamanho é 0
 
     @GetMapping(value = "/", produces = "application/json")
-    public ResponseEntity<List<Post>> findAll() {
+    public ResponseEntity<List<Skill>> findAll() {
         System.out.println("GET funcionando");
-        List<Post> allPosts = skillServiceImpl.findAll();
-        System.out.println("Posts" + allPosts);
-        if (allPosts.isEmpty()) {
+        List<Skill> allSkills = skillServiceImpl.findAll();
+        System.out.println("Skills" + allSkills);
+        if (allSkills.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(allPosts);
+            return ResponseEntity.ok(allSkills);
         }
     }
 
