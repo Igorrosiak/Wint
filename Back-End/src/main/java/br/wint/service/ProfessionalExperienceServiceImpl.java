@@ -35,6 +35,10 @@ public class ProfessionalExperienceServiceImpl implements ProfessionalExperience
         if (!updateProfessionalExperience.isEmpty()){
             updateProfessionalExperience.get().setCompany(professionalExperience.getCompany());
             updateProfessionalExperience.get().setDescription(professionalExperience.getDescription());
+            updateProfessionalExperience.get().setData(professionalExperience.getData());
+            updateProfessionalExperience.get().setRole(professionalExperience.getRole());
+            updateProfessionalExperience.get().setPlace(professionalExperience.getPlace());
+            updateProfessionalExperience.get().setTag(professionalExperience.getTag());
             return professionalExperienceRepository.save(updateProfessionalExperience.get());
         } else {
             return null;

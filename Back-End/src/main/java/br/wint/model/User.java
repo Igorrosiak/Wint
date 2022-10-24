@@ -83,6 +83,10 @@ public class User {
     private List<ProfessionalExperience> professionalExperiences;
 
     @Getter
+    @OneToMany(mappedBy = "userFromBlog")
+    private List<Blog> blogsList;
+
+    @Getter
     @Setter
     @ManyToMany
     @JoinTable(

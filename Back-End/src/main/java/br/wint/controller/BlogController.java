@@ -1,7 +1,7 @@
 package br.wint.controller;
 
-import br.wint.model.Portfolio;
-import br.wint.service.PortfolioServiceImpl;
+import br.wint.model.Blog;
+import br.wint.service.BlogServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,24 +13,24 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("portfolio")
-public class PortfolioController {
+@RequestMapping("blog")
+public class BlogController {
 
     @Autowired
-    PortfolioServiceImpl portfolioServiceImpl;
+    BlogServiceImpl blogServiceImpl;
 
     @PostMapping(value = "/", produces = "application/json")
-    public ResponseEntity<Portfolio> create(@RequestBody Portfolio portfolio)
+    public ResponseEntity<Blog> create(@RequestBody Blog blog)
             throws URISyntaxException {
-        Portfolio createdPortfolio = portfolioServiceImpl.create(portfolio);
-        if (createdPortfolio == null) {
+        Blog createdBlog = blogServiceImpl.create(blog);
+        if (createdBlog == null) {
             return ResponseEntity.notFound().build();
         } else {
             URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                     .path("/{id}")
-                    .buildAndExpand(createdPortfolio.getId())
+                    .buildAndExpand(createdBlog.getId())
                     .toUri();
-            return ResponseEntity.created(uri).body(createdPortfolio);
+            return ResponseEntity.created(uri).body(createdBlog);
         }
     }
 
@@ -39,42 +39,42 @@ public class PortfolioController {
     // ResponseEntity resposta do servidor ao front-end (também é JSON)
 
     @PutMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Portfolio> update(@RequestBody Portfolio portfolio, @PathVariable Long id) {
-        Portfolio updatedPortfolio = portfolioServiceImpl.update(id, portfolio);
-        if (updatedPortfolio == null) {
+    public ResponseEntity<Blog> update(@RequestBody Blog blog, @PathVariable Long id) {
+        Blog updatedBlog = blogServiceImpl.update(id, blog);
+        if (updatedBlog == null) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(updatedPortfolio);
+            return ResponseEntity.ok(updatedBlog);
         }
     }
 
     // PathVariable manipula as URI's e define os id's como parâmetros
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Optional<Portfolio>> findById(@PathVariable Long id) {
-        Optional<Portfolio> foundPortfolio = portfolioServiceImpl.findById(id);
-        if (foundPortfolio.isEmpty()) {
+    public ResponseEntity<Optional<Blog>> findById(@PathVariable Long id) {
+        Optional<Blog> foundBlog = blogServiceImpl.findById(id);
+        if (foundBlog.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(foundPortfolio);
+            return ResponseEntity.ok(foundBlog);
         }
     }
 
     // isEmpty verifica se o tamanho é 0
 
     @GetMapping(value = "/", produces = "application/json")
-    public ResponseEntity<List<Portfolio>> findAll() {
-        List<Portfolio> allPortfolios = portfolioServiceImpl.findAll();
-        if (allPortfolios.isEmpty()) {
+    public ResponseEntity<List<Blog>> findAll() {
+        List<Blog> allBlogs = blogServiceImpl.findAll();
+        if (allBlogs.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(allPortfolios);
+            return ResponseEntity.ok(allBlogs);
         }
     }
 
     @DeleteMapping(value = "/{id}", produces = "application/json")
     private ResponseEntity<Object> delete(@PathVariable Long id) {
-        if (portfolioServiceImpl.delete(id)) {
+        if (blogServiceImpl.delete(id)) {
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();

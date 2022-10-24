@@ -1,11 +1,9 @@
 package br.wint.repository;
 
-import br.wint.model.User;
+import br.wint.model.Blog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-
-    public User findByUsername(String username);
+public interface BlogRepository extends JpaRepository<Blog, Long> {
 }
