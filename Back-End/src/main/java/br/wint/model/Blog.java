@@ -7,8 +7,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Setter
-@Entity(name = "skill")
-public class Skill{
+@Entity(name = "blog")
+public class Blog {
 
     @Getter
     @Id
@@ -24,16 +24,10 @@ public class Skill{
     @Size(max = 150)
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "userFromSkill_id")
-    private User userFromSkill;
+    @Getter
+    private String content;
 
-    @Override
-    public String toString() {
-        return "Skill{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
+    @ManyToOne
+    @JoinColumn(name = "userFromBlog_id")
+    private User userFromBlog;
 }

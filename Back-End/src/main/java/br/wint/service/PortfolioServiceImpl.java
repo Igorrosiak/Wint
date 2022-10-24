@@ -35,6 +35,7 @@ public class PortfolioServiceImpl implements PortfolioService{
         Optional<Portfolio> updatePortfolio = portfolioRepository.findById(id);
         if (!updatePortfolio.isEmpty()){
             updatePortfolio.get().setDescription(portfolio.getDescription());
+            updatePortfolio.get().setName(portfolio.getName());
             return portfolioRepository.save(updatePortfolio.get());
         } else {
             return null;

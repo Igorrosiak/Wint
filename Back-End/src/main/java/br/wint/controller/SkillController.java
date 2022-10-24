@@ -64,9 +64,7 @@ public class SkillController {
 
     @GetMapping(value = "/", produces = "application/json")
     public ResponseEntity<List<Skill>> findAll() {
-        System.out.println("GET funcionando");
         List<Skill> allSkills = skillServiceImpl.findAll();
-        System.out.println("Skills" + allSkills);
         if (allSkills.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
