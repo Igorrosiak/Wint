@@ -24,4 +24,8 @@ public class Recommendation {
     @JoinColumn(name = "userRecommended_id")
     private User userRecommended;
 
+    @ManyToOne
+    @JoinColumn(name = "userWhoRecommended_id")
+    private User userWhoRecommended;
+
 }
