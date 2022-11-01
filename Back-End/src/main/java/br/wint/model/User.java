@@ -87,6 +87,14 @@ public class User {
     private List<Blog> blogsList;
 
     @Getter
+    @OneToMany(mappedBy = "userRecommended")
+    private List<Recommendation> myRecommendation;
+
+    @Getter
+    @OneToMany(mappedBy = "userWhoRecommended")
+    private List<Recommendation> userWhoRecommendated;
+
+    @Getter
     @Setter
     @ManyToMany
     @JoinTable(
