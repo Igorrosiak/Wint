@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Plus+Jakarta+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap');
 
 article.main{
     text-align: center;
@@ -22,12 +23,27 @@ h4{
     letter-spacing: 7.5px;    
 }
 
+h1{
+    color: #232E35;
+    padding-left: 2.5em;
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px; 
+}
+
 div.box-header{
     width: 100%;
     display: flex;
+    justify-content: space-between;
 
     div.box{
-        justify-content: space-between;
+        padding-right: 5em;
+        
+        img{
+            margin-left: 10px;
+        }
     }
 }
 
