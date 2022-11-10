@@ -4,7 +4,7 @@ import right from '../assets/images/Right.png'
 
 export const WorksComponent = _ => {
     return(
-        <article className="main">
+        <div className="main-works">
 
             <h4>-WORKS</h4>
 
@@ -20,6 +20,6 @@ export const WorksComponent = _ => {
                 </div>
 
             </div>
-        </article>
+        </div>
     )
 }

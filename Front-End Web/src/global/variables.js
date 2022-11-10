@@ -1,8 +1,10 @@
+import { SkillsComponent } from "../widgets/SkillsComponent"
+
 export const variables = {
 
     skillBody: {
-        name: "skill1",
-        description: "essa é a minha skill1",
+        name: document.getElementById("nameSkill"),
+        description: document.getElementById("descriptionSkill"),
         userFromSkill: {id: 1}
-    },
+    }
 }

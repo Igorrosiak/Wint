@@ -9,34 +9,63 @@ import axios from 'axios'
 export const SkillsComponent = _ => {
 
     const [skills, setSkills] = useState([])
+    var imagemAtual = ""
+
+    function handleId(){
+        if(imagemAtual === "Quadrado"){
+            imagemAtual = "Coroa"
+            return Coroa
+        } else if(imagemAtual === "Coroa"){
+            imagemAtual = "Planeta"
+            return Planeta
+        } else{
+            imagemAtual = "Quadrado"
+            return Quadrado
+        }
+    }
 
     axios
         .get("http://localhost:8080/skill/")
         .then(res => setSkills(res.data))
 
-    return (
-        <div className='main-skill'>
-            <div className="header">
-                <h4>---- S K I L L S</h4>
+    console.log(skills.length)
 
-                <button onClick={createSkill}>+</button>
+    return (
+        <div className="main-skill">
+            <h4>- S K I L L S</h4>
+
+            <div className="header">
+                <h1>Especializado(a) em...</h1>
+                <button className="newSkill" onClick={createSkill}><i class="fi fi-br-plus"></i></button>
             </div>
 
-            <h1>Especializado(a) em...</h1>
+            { skills.length === 0 &&(
+                <h2 className="textMotivate">Adicione uma nova Skill!</h2>
+            )}
 
-            <article className="image-box">
-                {
-                    skills.map(skill => {
-                        return(
-                            <div key={skill.id} className="box">
-                                <img src={Quadrado} alt="icon-quadrado" />
-                                <h3>{skill.name}</h3>
-                                <p>{skill.description}</p>
-                            </div>
-                        )
-                    })
-                }
-            </article>
+            { skills.length !== 0 &&(
+                <article className="image-box">
+                    {
+                        skills.map(skill => {
+                            return(
+                                <div key={skill.id} className="box">
+                                    <img src={handleId()} alt="icon-quadrado" />
+                                    <h3>{skill.name}</h3>
+                                    <p>{skill.description}</p>
+                                </div>
+                            )
+                        })
+                    }
+                </article>
+            )}
+
+            <div className="modal">
+                <h1 className="textModal">Crie sua nova skill!</h1>
+                <input id="nameSkill" className="inputModal" type="text" placeholder="Nome da sua especialidade"/>
+                <input id="descriptionSkill" className="inputModal" type="text" placeholder="Descrição da sua especialidade"/>
+            
+                <button onClick={createSkill}>Criar Skill</button>
+            </div>
         </div>
     )
 }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
