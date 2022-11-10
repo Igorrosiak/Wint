@@ -4,11 +4,21 @@ import Planeta from '../assets/images/planetinha.png'
 import Quadrado from '../assets/images/quadrado.png'
 import { createSkill } from '../service/newSkills'
 import { useState } from 'react'
+import { useEffect } from 'react'
 import axios from 'axios'
 
 export const SkillsComponent = _ => {
-
+    const [skillName, setSkillName] = useState("")
+    const [skillDescription, setSkillDescription] = useState("")    
+    
     const [skills, setSkills] = useState([])
+    
+    const skillBody = {
+        name: skillName,
+        description: skillDescription,
+        userFromSkill: {id: 1}
+    }
+
     var imagemAtual = ""
 
     function handleId(){
@@ -24,11 +34,16 @@ export const SkillsComponent = _ => {
         }
     }
 
-    axios
-        .get("http://localhost:8080/skill/")
-        .then(res => setSkills(res.data))
+    const getSkills = async () => {
+        await axios
+            .get("http://localhost:8080/skill/")
+            .then(res => setSkills(res.data))
+            console.log("OI");
+    }
 
-    console.log(skills.length)
+    useEffect(() => {
+        getSkills()
+    }, [])
 
     return (
         <div className="main-skill">
@@ -61,10 +76,24 @@ export const SkillsComponent = _ => {
 
             <div className="modal">
                 <h1 className="textModal">Crie sua nova skill!</h1>
-                <input id="nameSkill" className="inputModal" type="text" placeholder="Nome da sua especialidade"/>
-                <input id="descriptionSkill" className="inputModal" type="text" placeholder="Descrição da sua especialidade"/>
-            
-                <button onClick={createSkill}>Criar Skill</button>
+
+                <input 
+                    value={skillName}
+                    onChange={(e) => {
+                        setSkillName(e.target.value)
+                    }}
+                    className="inputModal" 
+                    type="text" 
+                    placeholder="Nome da sua especialidade"/>
+                <input 
+                    value={skillDescription}
+                    onChange={(e) => {
+                        setSkillDescription(e.target.value)
+                    }}
+                    className="inputModal" 
+                    type="text" 
+                    placeholder="Descrição da sua especialidade"/>
+                <button onClick={() => createSkill(skillBody)}>Criar Skill</button>
             </div>
         </div>
     )

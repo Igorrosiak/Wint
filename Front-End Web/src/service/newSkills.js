@@ -1,16 +1,17 @@
-import { variables } from "../global/variables"
 import axios from "axios"
 import { env } from "../data/env"
 
-export function createSkill(){
+export function createSkill(skillBody){
     console.log("Adicionando Skill")
 
-    console.table(variables.skillBody)
+    console.log(skillBody);
+    console.table(skillBody)
 
     axios
-        .post(env.local.newSkill, variables.skillBody)
+        .post(env.local.newSkill, skillBody)
         .then((res) =>{
             console.log("[*] Success!", res.data)
+            document.location.reload(true);
         })
         .catch((res) => {
             console.log("[!] Error trying to create skill")
