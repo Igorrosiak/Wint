@@ -1,5 +1,5 @@
 export const env = {
     local : {
-        newSkill : "localhost:8080/skill"
+        newSkill : "http://localhost:8080/skill/"    
     }
 }
