@@ -10,20 +10,10 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient"
+        android:background="@color/white"
         android:onClick="esqueciSenha"
         tools:context=".MainActivity">
 
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="251dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="36dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/wint" />
 
         <TextView
             android:id="@+id/textView"
@@ -32,7 +22,7 @@
             android:layout_marginTop="24dp"
             android:onClick="abrirCadastro"
             android:text="NÃO TEM UMA CONTA? CADASTRE-SE"
-            android:textColor="#FFFFFF"
+            android:textColor="#2C1586"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
@@ -45,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="Esqueci minha senha"
-            android:textColor="#FFFF"
+            android:textColor="#2C1586"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword4" />
@@ -68,7 +58,7 @@
             android:id="@+id/editTextTextPersonName"
             android:layout_width="272dp"
             android:layout_height="88dp"
-            android:layout_marginTop="52dp"
+            android:layout_marginTop="28dp"
             android:backgroundTint="#B17BFF"
             android:ems="10"
             android:hint="Login"
@@ -77,8 +67,9 @@
             android:textColorHint="#B17BFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -107,6 +98,15 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="281dp"
+            android:layout_height="181dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/logo"
+            tools:layout_editor_absoluteY="46dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

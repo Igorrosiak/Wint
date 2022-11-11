@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient"
+        android:background="@color/white"
         tools:context=".RecSenhaActivity">
 
         <TextView
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="49dp"
             android:text="ESQUECEU SUA SENHA?"
-            android:textColor="#FFFF"
+            android:textColor="#2C1586"
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline7"
             app:layout_constraintStart_toStartOf="@+id/guideline6"
@@ -34,7 +34,7 @@
             android:shadowColor="#99FFFFFF"
             android:text="Para recuperar seu acesso, preencha o campo abaixo com o e-mail cadastrado em sua conta Wint"
             android:textAlignment="center"
-            android:textColor="#FFFF"
+            android:textColor="#2C1586"
             android:textSize="14sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toStartOf="@+id/guideline7"
@@ -46,7 +46,7 @@
             android:id="@+id/imageView4"
             android:layout_width="326dp"
             android:layout_height="152dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="88dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
             app:layout_constraintStart_toStartOf="parent"
