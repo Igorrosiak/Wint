@@ -1,7 +1,7 @@
 package br.wint.controller;
 
-import br.wint.model.Post;
-import br.wint.service.PostServiceImpl;
+import br.wint.model.Blog;
+import br.wint.service.BlogServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,24 +13,24 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("post")
-public class PostController {
+@RequestMapping("blog")
+public class BlogController {
 
     @Autowired
-    PostServiceImpl postServiceImpl;
+    BlogServiceImpl blogServiceImpl;
 
     @PostMapping(value = "/", produces = "application/json")
-    public ResponseEntity<Post> create(@RequestBody Post post)
-            throws URISyntaxException{
-        Post createdPost = postServiceImpl.create(post);
-        if (createdPost == null) {
+    public ResponseEntity<Blog> create(@RequestBody Blog blog)
+            throws URISyntaxException {
+        Blog createdBlog = blogServiceImpl.create(blog);
+        if (createdBlog == null) {
             return ResponseEntity.notFound().build();
         } else {
             URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                     .path("/{id}")
-                    .buildAndExpand(createdPost.getId())
+                    .buildAndExpand(createdBlog.getId())
                     .toUri();
-            return ResponseEntity.created(uri).body(createdPost);
+            return ResponseEntity.created(uri).body(createdBlog);
         }
     }
 
@@ -39,42 +39,42 @@ public class PostController {
     // ResponseEntity resposta do servidor ao front-end (também é JSON)
 
     @PutMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Post> update(@RequestBody Post post, @PathVariable Long id) {
-        Post updatedPost = postServiceImpl.update(id, post);
-        if (updatedPost == null) {
+    public ResponseEntity<Blog> update(@RequestBody Blog blog, @PathVariable Long id) {
+        Blog updatedBlog = blogServiceImpl.update(id, blog);
+        if (updatedBlog == null) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(updatedPost);
+            return ResponseEntity.ok(updatedBlog);
         }
     }
 
     // PathVariable manipula as URI's e define os id's como parâmetros
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Optional<Post>> findById(@PathVariable Long id) {
-        Optional<Post> foundPost = postServiceImpl.findById(id);
-        if (foundPost.isEmpty()) {
+    public ResponseEntity<Optional<Blog>> findById(@PathVariable Long id) {
+        Optional<Blog> foundBlog = blogServiceImpl.findById(id);
+        if (foundBlog.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(foundPost);
+            return ResponseEntity.ok(foundBlog);
         }
     }
 
     // isEmpty verifica se o tamanho é 0
 
     @GetMapping(value = "/", produces = "application/json")
-    public ResponseEntity<List<Post>> findAll() {
-        List<Post> allPosts = postServiceImpl.findAll();
-        if (allPosts.isEmpty()) {
+    public ResponseEntity<List<Blog>> findAll() {
+        List<Blog> allBlogs = blogServiceImpl.findAll();
+        if (allBlogs.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(allPosts);
+            return ResponseEntity.ok(allBlogs);
         }
     }
 
     @DeleteMapping(value = "/{id}", produces = "application/json")
     private ResponseEntity<Object> delete(@PathVariable Long id) {
-        if (postServiceImpl.delete(id)) {
+        if (blogServiceImpl.delete(id)) {
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();

@@ -71,6 +71,36 @@ public class User {
     private Date creationDate;
 
     @Getter
-    @OneToMany(mappedBy = "userPosting")
-    private List<Post> posts;
+    @OneToMany(mappedBy = "userPortfolio")
+    private List<Portfolio> portfoliosByUser;
+
+    @Getter
+    @OneToMany(mappedBy = "userFromSkill")
+    private List<Skill> skillsList;
+
+    @Getter
+    @OneToMany(mappedBy = "userExperiences")
+    private List<ProfessionalExperience> professionalExperiences;
+
+    @Getter
+    @OneToMany(mappedBy = "userFromBlog")
+    private List<Blog> blogsList;
+
+    @Getter
+    @OneToMany(mappedBy = "userRecommended")
+    private List<Recommendation> myRecommendation;
+
+    @Getter
+    @OneToMany(mappedBy = "userWhoRecommended")
+    private List<Recommendation> userWhoRecommendated;
+
+    @Getter
+    @Setter
+    @ManyToMany
+    @JoinTable(
+            name = "user_permission",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "permission_id")
+    )
+    private List<Permission> permissions;
 }

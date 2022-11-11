@@ -1,7 +1,7 @@
 package br.wint.controller;
 
-import br.wint.model.Post;
-import br.wint.service.PostServiceImpl;
+import br.wint.model.Recommendation;
+import br.wint.service.RecommendationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,24 +13,24 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("post")
-public class PostController {
+@RequestMapping("recommendation")
+public class RecommendationController {
 
     @Autowired
-    PostServiceImpl postServiceImpl;
+    RecommendationServiceImpl recommendationServiceImpl;
 
     @PostMapping(value = "/", produces = "application/json")
-    public ResponseEntity<Post> create(@RequestBody Post post)
-            throws URISyntaxException{
-        Post createdPost = postServiceImpl.create(post);
-        if (createdPost == null) {
+    public ResponseEntity<Recommendation> create(@RequestBody Recommendation recommendation)
+            throws URISyntaxException {
+        Recommendation createdRecommendation = recommendationServiceImpl.create(recommendation);
+        if (createdRecommendation == null) {
             return ResponseEntity.notFound().build();
         } else {
             URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                     .path("/{id}")
-                    .buildAndExpand(createdPost.getId())
+                    .buildAndExpand(createdRecommendation.getId())
                     .toUri();
-            return ResponseEntity.created(uri).body(createdPost);
+            return ResponseEntity.created(uri).body(createdRecommendation);
         }
     }
 
@@ -39,42 +39,42 @@ public class PostController {
     // ResponseEntity resposta do servidor ao front-end (também é JSON)
 
     @PutMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Post> update(@RequestBody Post post, @PathVariable Long id) {
-        Post updatedPost = postServiceImpl.update(id, post);
-        if (updatedPost == null) {
+    public ResponseEntity<Recommendation> update(@RequestBody Recommendation recommendation, @PathVariable Long id) {
+        Recommendation updatedRecommendation = recommendationServiceImpl.update(id, recommendation);
+        if (updatedRecommendation == null) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(updatedPost);
+            return ResponseEntity.ok(updatedRecommendation);
         }
     }
 
     // PathVariable manipula as URI's e define os id's como parâmetros
 
     @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Optional<Post>> findById(@PathVariable Long id) {
-        Optional<Post> foundPost = postServiceImpl.findById(id);
-        if (foundPost.isEmpty()) {
+    public ResponseEntity<Optional<Recommendation>> findById(@PathVariable Long id) {
+        Optional<Recommendation> foundRecommendation = recommendationServiceImpl.findById(id);
+        if (foundRecommendation.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(foundPost);
+            return ResponseEntity.ok(foundRecommendation);
         }
     }
 
     // isEmpty verifica se o tamanho é 0
 
     @GetMapping(value = "/", produces = "application/json")
-    public ResponseEntity<List<Post>> findAll() {
-        List<Post> allPosts = postServiceImpl.findAll();
-        if (allPosts.isEmpty()) {
+    public ResponseEntity<List<Recommendation>> findAll() {
+        List<Recommendation> allRecommendations = recommendationServiceImpl.findAll();
+        if (allRecommendations.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
-            return ResponseEntity.ok(allPosts);
+            return ResponseEntity.ok(allRecommendations);
         }
     }
 
     @DeleteMapping(value = "/{id}", produces = "application/json")
     private ResponseEntity<Object> delete(@PathVariable Long id) {
-        if (postServiceImpl.delete(id)) {
+        if (recommendationServiceImpl.delete(id)) {
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
