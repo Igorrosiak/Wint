@@ -9,6 +9,10 @@ article.main{
     padding: 0;
 }
 
+article.main-colum{
+    display: block;
+}
+
 h4{
     font-family: 'Inter';
     font-style: normal;
@@ -38,11 +42,23 @@ div.box-header{
     display: flex;
     justify-content: space-between;
 
-    div.box{
+    div.box-back{
         padding-right: 5em;
         
-        img{
+        img.back{
             margin-left: 10px;
+        }
+    }
+}
+
+article.image-box{
+    display: flex;
+
+    div.box-img{
+        justify-content: space-evenly;
+
+        img{
+            width: 70%;
         }
     }
 }
