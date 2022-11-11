@@ -48,6 +48,7 @@ export const SkillsComponent = _ => {
         await axios
             .get("http://localhost:8080/skill/")
             .then(res => setSkills(res.data))
+            .catch(e => console.log(e))
     }
 
     useEffect(() => {
@@ -60,8 +61,8 @@ export const SkillsComponent = _ => {
             { modalIsOpen === true &&(
                 <div className="modal" >
                     <div className="content">
-                        <button className="closeModal"><i class="fi fi-br-cross" onClick={openCloseModal}></i></button>
-                        <h1 className="textModal">Crie sua nova skill!</h1>
+                        <button className="closeModal"><i className ="fi fi-br-cross" onClick={openCloseModal}></i></button>
+                        <h1 className="textModal">Adicione sua nova skill!</h1>
 
                         <input
                             value={skillName}
@@ -88,7 +89,7 @@ export const SkillsComponent = _ => {
 
             <div className="header">
                 <h1>Especializado(a) em...</h1>
-                <button className="newSkill" onClick={openCloseModal}><i class="fi fi-br-plus"></i></button>
+                <button className="newSkill" onClick={openCloseModal}><i className="fi fi-br-plus"></i></button>
             </div>
 
             { skills.length === 0 &&(
