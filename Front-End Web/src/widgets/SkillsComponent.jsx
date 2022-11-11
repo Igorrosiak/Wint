@@ -12,6 +12,8 @@ export const SkillsComponent = _ => {
     const [skillDescription, setSkillDescription] = useState("")    
     
     const [skills, setSkills] = useState([])
+
+    const [modalIsOpen, setModalIsOpen] = useState(false)
     
     const skillBody = {
         name: skillName,
@@ -20,6 +22,14 @@ export const SkillsComponent = _ => {
     }
 
     var imagemAtual = ""
+
+    function openCloseModal(){
+        if(modalIsOpen === false){
+            setModalIsOpen(true)
+        } else{
+            setModalIsOpen(false)
+        } 
+    }
 
     function handleId(){
         if(imagemAtual === "Quadrado"){
@@ -38,7 +48,6 @@ export const SkillsComponent = _ => {
         await axios
             .get("http://localhost:8080/skill/")
             .then(res => setSkills(res.data))
-            console.log("OI");
     }
 
     useEffect(() => {
@@ -47,11 +56,39 @@ export const SkillsComponent = _ => {
 
     return (
         <div className="main-skill">
+
+            { modalIsOpen === true &&(
+                <div className="modal" >
+                    <div className="content">
+                        <button className="closeModal"><i class="fi fi-br-cross" onClick={openCloseModal}></i></button>
+                        <h1 className="textModal">Crie sua nova skill!</h1>
+
+                        <input
+                            value={skillName}
+                            onChange={(e) => {
+                                setSkillName(e.target.value)
+                            }}
+                            className="inputModal"
+                            type="text"
+                            placeholder="Nome da sua especialidade"/>
+                        <input
+                            value={skillDescription}
+                            onChange={(e) => {
+                                setSkillDescription(e.target.value)
+                            }}
+                            className="inputModal"
+                            type="text"
+                            placeholder="Descrição da sua especialidade"/>
+                        <button className="submitNewSkill" onClick={() => createSkill(skillBody)}>Criar Skill</button>
+                    </div>
+                </div>
+            )}
+
             <h4>- S K I L L S</h4>
 
             <div className="header">
                 <h1>Especializado(a) em...</h1>
-                <button className="newSkill" onClick={createSkill}><i class="fi fi-br-plus"></i></button>
+                <button className="newSkill" onClick={openCloseModal}><i class="fi fi-br-plus"></i></button>
             </div>
 
             { skills.length === 0 &&(
@@ -73,28 +110,6 @@ export const SkillsComponent = _ => {
                     }
                 </article>
             )}
-
-            <div className="modal">
-                <h1 className="textModal">Crie sua nova skill!</h1>
-
-                <input 
-                    value={skillName}
-                    onChange={(e) => {
-                        setSkillName(e.target.value)
-                    }}
-                    className="inputModal" 
-                    type="text" 
-                    placeholder="Nome da sua especialidade"/>
-                <input 
-                    value={skillDescription}
-                    onChange={(e) => {
-                        setSkillDescription(e.target.value)
-                    }}
-                    className="inputModal" 
-                    type="text" 
-                    placeholder="Descrição da sua especialidade"/>
-                <button onClick={() => createSkill(skillBody)}>Criar Skill</button>
-            </div>
         </div>
     )
 }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           

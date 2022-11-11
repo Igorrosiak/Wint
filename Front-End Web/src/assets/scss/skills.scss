@@ -12,6 +12,7 @@
 div.main-skill{
     background-color: #FBFBFB;
     padding-bottom: 3em;
+    z-index: 0;
     
     h4{
         padding-top: 30px;
@@ -94,27 +95,62 @@ div.main-skill{
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
+        z-index: 1;
+        background-color: rgba(185, 185, 185, 0.541);
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
 
-        h1.textModal{
-            color: #232E35;
-            font: normal 500 1.7rem 'Plus Jakarta Sans';
-        }
+        div.content{
+            width: 53vw;
+            height: 55vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+            border-radius: 20px;
 
-        input.inputModal{
-            margin-top: 1em;
-            height: 3em;
-            width: 20em;
-            border: black 1px solid;
-            color: black;
-        }
+            button.closeModal{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                background-color: transparent;
+                padding-right: 3em;
 
-        button{
-            height: 2.5em;
-            width: 15em;
-            background-color: #232E35;
-            border-radius: 10px;
-            margin-top: 1em;
+                i{
+                    cursor: pointer;
+                    color: #232E35;
+                    font-size: 1.2rem;
+                }
+            }
+
+            h1.textModal{
+                color: #232E35;
+                font: normal 500 1.7rem 'Plus Jakarta Sans';
+            }
+
+            input.inputModal{
+                margin-top: 1em;
+                height: 3em;
+                width: 20em;
+                border: black 1px solid;
+                color: black;
+            }
+
+            button.submitNewSkill{
+                height: 2.5em;
+                width: 15em;
+                background-color: #232E35;
+                border-radius: 10px;
+                margin-top: 2em;
+                cursor: pointer;
+            }
+
+            button.submitNewSkill:hover{
+                background-color: #656D72;
+            }
         }
     }
 }
