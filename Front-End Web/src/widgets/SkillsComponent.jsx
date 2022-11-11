@@ -9,20 +9,14 @@ import axios from 'axios'
 
 export const SkillsComponent = _ => {
     const [skillName, setSkillName] = useState("")
-    const [skillDescription, setSkillDescription] = useState("")    
-    
-    const [skills, setSkills] = useState([])
-
-    const [modalIsOpen, setModalIsOpen] = useState(false)
-    
+    const [skillDescription, setSkillDescription] = useState("")        
     const skillBody = {
         name: skillName,
         description: skillDescription,
         userFromSkill: {id: 1}
     }
 
-    var imagemAtual = ""
-
+    const [modalIsOpen, setModalIsOpen] = useState(false)
     function openCloseModal(){
         if(modalIsOpen === false){
             setModalIsOpen(true)
@@ -31,6 +25,16 @@ export const SkillsComponent = _ => {
         } 
     }
 
+    const [modalDeleteIsOpen, setModalDeleteIsOpen] = useState(false)
+    function openCloseDeleteModal(){
+        if(modalDeleteIsOpen === false){
+            setModalDeleteIsOpen(true)
+        } else{
+            setModalDeleteIsOpen(false)
+        } 
+    }
+
+    var imagemAtual = ""
     function handleId(){
         if(imagemAtual === "Quadrado"){
             imagemAtual = "Coroa"
@@ -44,6 +48,7 @@ export const SkillsComponent = _ => {
         }
     }
 
+    const [skills, setSkills] = useState([])
     const getSkills = async () => {
         await axios
             .get("http://localhost:8080/skill/")
@@ -55,6 +60,31 @@ export const SkillsComponent = _ => {
         getSkills()
     }, [])
 
+    //useEffect(() => {
+    //    axios.delete("http://localhost:8080/skill/${id}")
+    //        .then(response => {
+    //            console.log("Delete successful")
+      //          /* setStatus('Delete successful') */
+          //      document.location.reload(true);
+        //    })
+            //.catch(error => {
+                /* setErrorMessage(error.message); */
+              //  console.error('There was an error!', error);
+                //console.log("Erro para deletar evento")
+            //});
+    //}, []);
+
+    function deleteSkill(id){
+        axios.delete("http://localhost:8080/skill/" + id)
+            .then(res => {
+                console.log("Delete successful")
+                document.location.reload(true);
+            })
+            .catch(error => {
+                console.log("Erro para deletar evento")
+            });
+    }
+    
     return (
         <div className="main-skill">
 
@@ -102,6 +132,16 @@ export const SkillsComponent = _ => {
                         skills.map(skill => {
                             return(
                                 <div key={skill.id} className="box">
+                                    { modalDeleteIsOpen === true &&(
+                                        <div className="modalDelete">
+                                            <div className="content">
+                                                <h1>Tem certeza que deseja deletar essa skill?</h1>
+                                                <button onClick={() => deleteSkill(skill.id)}>SIM</button>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <button className="deleteSkill" ><i className="fi fi-br-cross" onClick={openCloseDeleteModal}></i></button>
                                     <img src={handleId()} alt="icon-quadrado" />
                                     <h3>{skill.name}</h3>
                                     <p>{skill.description}</p>

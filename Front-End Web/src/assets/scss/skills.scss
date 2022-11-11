@@ -75,6 +75,52 @@ div.main-skill{
             background-color: #FFFFFF;
             padding: 3em 0;
             border-radius: 15px;
+            position: relative;
+
+            .modalDelete{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                background-color: rgba(185, 185, 185, 0.541);
+                position: absolute;
+                width: 100vw;
+                height: 100vh;
+
+                .content{
+                    width: 51vw;
+                    height: 55vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    background-color: white;
+                    border-radius: 20px;
+                }
+            }
+
+            button.deleteSkill{
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                background-color: transparent;                
+                position: absolute;
+                width: 100%;
+                padding-right: 1em;
+                top: 8%;
+
+                i{
+                color: #232E35;
+                font-size: 0.9rem;
+                padding: 12px 10px 6px 10px;
+                border-radius: 100%;
+                cursor: pointer;
+                }
+
+                i:hover{
+                    background-color: #f0ebeb;
+                }
+            }
 
             img{
                 padding: 1.2em;
@@ -128,7 +174,6 @@ div.main-skill{
                 padding-bottom: 37.5%;
                 position: absolute;
                 
-
                 i{
                     cursor: pointer;
                     color: #232E35;
