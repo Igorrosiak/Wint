@@ -26,15 +26,15 @@ export const SkillsComponent = _ => {
     }
 
     const [modalDeleteIsOpen, setModalDeleteIsOpen] = useState(false)
-    function openCloseDeleteModal(){
-        if(modalDeleteIsOpen === false){
-            setModalDeleteIsOpen(true)
-        } else{
-            setModalDeleteIsOpen(false)
-        } 
+    function openDeleteModal(){
+        setModalDeleteIsOpen(true)
+    }
+    function closeDeleteModal(){
+        setModalDeleteIsOpen(false)
+        localStorage.removeItem("idSelecionado")
     }
 
-    var imagemAtual = ""
+    let imagemAtual = ""
     function handleId(){
         if(imagemAtual === "Quadrado"){
             imagemAtual = "Coroa"
@@ -58,23 +58,11 @@ export const SkillsComponent = _ => {
 
     useEffect(() => {
         getSkills()
-    }, [])
+        console.log(modalDeleteIsOpen);
+    }, [modalDeleteIsOpen])
 
-    //useEffect(() => {
-    //    axios.delete("http://localhost:8080/skill/${id}")
-    //        .then(response => {
-    //            console.log("Delete successful")
-      //          /* setStatus('Delete successful') */
-          //      document.location.reload(true);
-        //    })
-            //.catch(error => {
-                /* setErrorMessage(error.message); */
-              //  console.error('There was an error!', error);
-                //console.log("Erro para deletar evento")
-            //});
-    //}, []);
-
-    function deleteSkill(id){
+    function deleteSkill(){
+        const id = localStorage.getItem("idSelecionado")
         axios.delete("http://localhost:8080/skill/" + id)
             .then(res => {
                 console.log("Delete successful")
@@ -127,21 +115,17 @@ export const SkillsComponent = _ => {
             )}
 
             { skills.length !== 0 &&(
-                <article className="image-box">
+                <article className="rowSkills">
                     {
                         skills.map(skill => {
                             return(
-                                <div key={skill.id} className="box">
-                                    { modalDeleteIsOpen === true &&(
-                                        <div className="modalDelete">
-                                            <div className="content">
-                                                <h1>Tem certeza que deseja deletar essa skill?</h1>
-                                                <button onClick={() => deleteSkill(skill.id)}>SIM</button>
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    <button className="deleteSkill" ><i className="fi fi-br-cross" onClick={openCloseDeleteModal}></i></button>
+                                <div key={skill.id} className="cardSkill">
+                                    <button className="deleteSkill" >
+                                        <i className="fi fi-br-cross" onClick={() => {
+                                            openDeleteModal()
+                                            localStorage.setItem("idSelecionado", skill.id)
+                                        }}/>
+                                    </button>
                                     <img src={handleId()} alt="icon-quadrado" />
                                     <h3>{skill.name}</h3>
                                     <p>{skill.description}</p>
@@ -149,6 +133,18 @@ export const SkillsComponent = _ => {
                             )
                         })
                     }
+            
+                    {modalDeleteIsOpen === true &&(
+                        <div className="modalDelete">
+                            <div className="content">
+                                <h1>Tem certeza que deseja deletar essa skill?</h1>
+                                <div className="buttons">
+                                    <button onClick={() => closeDeleteModal()}>Não</button>
+                                    <button onClick={() => deleteSkill()}>Sim</button>
+                                </div> 
+                            </div>
+                        </div>
+                    )}
                 </article>
             )}
         </div>
