@@ -1,5 +1,4 @@
 import axios from "axios"
-import { env } from "../data/env"
 
 export function createSkill(skillBody){
     console.log("Adicionando Skill")
@@ -8,7 +7,7 @@ export function createSkill(skillBody){
     console.table(skillBody)
 
     axios
-        .post(env.local.newSkill, skillBody)
+        .post("http://localhost:8080/skill/", skillBody)
         .then((res) =>{
             console.log("[*] Success!", res.data)
             document.location.reload(true);
@@ -25,7 +24,7 @@ export function editSkill(skillBodyForEdit){
     console.table(skillBodyForEdit)
 
     axios
-        .put(env.local.editSkill, skillBodyForEdit)
+        .put("http://localhost:8080/skill/" + localStorage.getItem("idSelecionedForEdit"), skillBodyForEdit)
         .then((res) =>{
             console.log("[*] Success!", res.data)
             document.location.reload(true);
@@ -36,7 +35,7 @@ export function editSkill(skillBodyForEdit){
 }
 
 export function deleteSkill(){
-    axios.delete(env.local.deleteSkill)
+    axios.delete("http://localhost:8080/skill/" + localStorage.getItem("idSelecionedForDelete"))
         .then(res => {
             console.log("Delete successful")
             document.location.reload(true);
