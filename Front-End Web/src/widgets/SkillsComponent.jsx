@@ -26,7 +26,7 @@ export const SkillsComponent = _ => {
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
     function openCloseModal(){
-        if(modalIsOpen === false){
+        if(modalIsOpen === false){    
             setModalIsOpen(true)
         } else{
             setModalIsOpen(false)
@@ -69,11 +69,11 @@ export const SkillsComponent = _ => {
         console.log(modalDeleteIsOpen);
     }, [modalDeleteIsOpen])
 
-    const [skillForEdit, setSkillForEdit] = useState("")
+    const [getSkillForEdit, setGetSkillForEdit] = useState("")
     function getSkillById() {
         axios
             .get("http://localhost:8080/skill/" + localStorage.getItem("idSelecionedForEdit"))
-            .then(res => setSkillForEdit(res.data))
+            .then(res => setGetSkillForEdit(res.data))
             .catch(e => console.log(e))
     }
 
@@ -124,12 +124,12 @@ export const SkillsComponent = _ => {
 
                         <input 
                         type="text" 
-                        value={skillForEdit.name} 
+                        value={getSkillForEdit.name} 
                         onChange={(e) =>{
                             setSkillNameForEdit(e.target.value)
                         }} />
                         <input type="text" 
-                        value={skillForEdit.description}
+                        value={getSkillForEdit.description}
                         onChange={(e) =>{
                             setSkillDescriptionForEdit(e.target.value)
                         }} />
