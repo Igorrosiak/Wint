@@ -19,8 +19,8 @@ export const SkillsComponent = _ => {
     const [skillNameForEdit, setSkillNameForEdit] = useState("")
     const [skillDescriptionForEdit, setSkillDescriptionForEdit] = useState("")        
     const skillBodyForEdit = {
-        name: skillName,
-        description: skillDescription,
+        name: skillNameForEdit,
+        description: skillDescriptionForEdit,
         userFromSkill: {id: 1}
     }
 
@@ -69,6 +69,14 @@ export const SkillsComponent = _ => {
         console.log(modalDeleteIsOpen);
     }, [modalDeleteIsOpen])
 
+    const [skillForEdit, setSkillForEdit] = useState("")
+    function getSkillById() {
+        axios
+            .get("http://localhost:8080/skill/" + localStorage.getItem("idSelecionedForEdit"))
+            .then(res => setSkillForEdit(res.data))
+            .catch(e => console.log(e))
+    }
+
     const [modalEditIsOpen, setModalEditIsOpen] = useState(false)
     function openEditModal(){
         setModalEditIsOpen(true)
@@ -113,9 +121,21 @@ export const SkillsComponent = _ => {
                     {/* USAR URL + ID NO MAP (FIND BY ID) */}
                     <div className="content">
                         <h1>Edite sua Skill</h1>
+
+                        <input 
+                        type="text" 
+                        value={skillForEdit.name} 
+                        onChange={(e) =>{
+                            setSkillNameForEdit(e.target.value)
+                        }} />
+                        <input type="text" 
+                        value={skillForEdit.description}
+                        onChange={(e) =>{
+                            setSkillDescriptionForEdit(e.target.value)
+                        }} />
                         <div className="buttons">
                             <button onClick={() => closeEditModal()}>X</button>
-                            <button onClick={() => editSkill()}>Sim</button>
+                            <button onClick={() => editSkill(skillBodyForEdit)}>Sim</button>
                         </div> 
                     </div>
                 </div>
