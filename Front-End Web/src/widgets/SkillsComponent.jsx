@@ -17,12 +17,9 @@ export const SkillsComponent = _ => {
     }
 
     const [skillNameForEdit, setSkillNameForEdit] = useState("")
-    const [skillDescriptionForEdit, setSkillDescriptionForEdit] = useState("")        
-    const skillBodyForEdit = {
-        name: skillNameForEdit,
-        description: skillDescriptionForEdit,
-        userFromSkill: {id: 1}
-    }
+    const [skillDescriptionForEdit, setSkillDescriptionForEdit] = useState("")   
+
+    
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
     function openCloseModal(){
@@ -69,12 +66,18 @@ export const SkillsComponent = _ => {
         console.log(modalDeleteIsOpen);
     }, [modalDeleteIsOpen])
 
-    const [getSkillForEdit, setGetSkillForEdit] = useState("")
-    function getSkillById() {
-        axios
+    const [skillForEdit, setSkillForEdit] = useState("")
+    async function getSkillById() {
+        await axios
             .get("http://localhost:8080/skill/" + localStorage.getItem("idSelecionedForEdit"))
-            .then(res => setGetSkillForEdit(res.data))
+            .then(res => setSkillForEdit(res.data))
             .catch(e => console.log(e))
+    }
+
+    let skillBodyForEdit = {
+        name: skillNameForEdit || skillForEdit.name,
+        description: skillDescriptionForEdit,
+        userFromSkill: {id: 1}
     }
 
     const [modalEditIsOpen, setModalEditIsOpen] = useState(false)
@@ -117,26 +120,50 @@ export const SkillsComponent = _ => {
             )}
 
             { modalEditIsOpen === true &&(
-                <div className="modalDelete">
+                <div className="modalEdit">
                     {/* USAR URL + ID NO MAP (FIND BY ID) */}
-                    <div className="content">
-                        <h1>Edite sua Skill</h1>
 
+                    <div key={skillForEdit.id} className="content"> 
+                        <h1>Edite sua Skill</h1>
+                        
                         <input 
                         type="text" 
-                        value={getSkillForEdit.name} 
-                        onChange={(e) =>{
-                            setSkillNameForEdit(e.target.value)
-                        }} />
-                        <input type="text" 
-                        value={getSkillForEdit.description}
-                        onChange={(e) =>{
-                            setSkillDescriptionForEdit(e.target.value)
-                        }} />
+                        defaultValue={skillForEdit.name}
+                        onChange={(e) => {setSkillNameForEdit(e.target.value)}}
+                        id={"skillNameInput"}
+                        />
+                        <input 
+                        type="text" 
+                        defaultValue={skillForEdit.description}
+                        onChange={(e) => {setSkillDescriptionForEdit(e.target.value)}}
+                        id={"skillDesInput"}
+                        />
                         <div className="buttons">
                             <button onClick={() => closeEditModal()}>X</button>
-                            <button onClick={() => editSkill(skillBodyForEdit)}>Sim</button>
-                        </div> 
+                            <button onClick={() => {
+                                if((skillNameForEdit === undefined || skillNameForEdit === "" || skillNameForEdit === null) && (skillDescriptionForEdit === undefined || skillDescriptionForEdit === "" || skillDescriptionForEdit === null)){
+                                    skillBodyForEdit = {
+                                        name: skillForEdit.name,
+                                        description: skillForEdit.description,
+                                        userFromSkill: {id: 1}
+                                    }
+                                } else if(skillNameForEdit === undefined || skillNameForEdit === "" || skillNameForEdit === null){
+                                    skillBodyForEdit = {
+                                        name: skillForEdit.name,
+                                        description: skillDescriptionForEdit,
+                                        userFromSkill: {id: 1}
+                                    }
+                                } else if(skillDescriptionForEdit === undefined || skillDescriptionForEdit === "" || skillDescriptionForEdit === null){
+                                    skillBodyForEdit = {
+                                        name: skillNameForEdit,
+                                        description: skillForEdit.description,
+                                        userFromSkill: {id: 1}
+                                    }
+                                } else {}
+
+                                editSkill(skillBodyForEdit)
+                            }}>Sim</button>
+                        </div>
                     </div>
                 </div>
             )}
@@ -160,9 +187,10 @@ export const SkillsComponent = _ => {
                                 <div key={skill.id} className="cardSkill">
                                     <button className="editSkill" >
                                     <i className="fi fi-br-cross" onClick={() => {
-                                            openEditModal()
                                             localStorage.setItem("idSelecionedForEdit", skill.id)
-                                        }}/>
+                                            getSkillById(skill.id)
+                                            openEditModal()
+                                    }}/>
                                     </button>
                                     <button className="deleteSkill" >
                                         <i className="fi fi-br-cross" onClick={() => {

@@ -244,4 +244,58 @@ div.main-skill{
             }
         }
     }
+
+    div.modalEdit{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        background-color: rgba(185, 185, 185, 0.541);
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+
+        div.content{
+            width: 51vw;
+            height: 55vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: white;
+            border-radius: 20px;
+            position: relative;
+
+            h1{
+                color: black;
+            }
+
+            input{
+                margin-top: 1em;
+                height: 3em;
+                width: 20em;
+                border: black 1px solid;
+                color: black;
+            }
+
+            div.buttons{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                padding: 1em 12rem;
+
+                button{
+                    width: 5rem;
+                    height: 1.8rem;
+                    border-radius: 10px;
+                    background-color: #232E35;
+                    cursor: pointer;
+                }
+
+                button{
+                    background-color: #656D72;
+                }
+            }
+        }
+    }
 }
