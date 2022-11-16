@@ -5,9 +5,9 @@ import {WorksComponent} from '../../widgets/WorksComponent'
 export const ProfileView = _ => {
     return (
         <>
-            {/* <HeaderComponent /> */}
-            {/* <SkillsComponent /> */}
-            <WorksComponent/>
+            {/* <HeaderComponent /> */} 
+            <SkillsComponent /> 
+            {/* <WorksComponent/> */}
         </>
     )
 }
