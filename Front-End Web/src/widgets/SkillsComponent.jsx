@@ -8,18 +8,6 @@ import { useEffect } from 'react'
 import axios from 'axios'
 
 export const SkillsComponent = _ => {
-    const [skillName, setSkillName] = useState("")
-    const [skillDescription, setSkillDescription] = useState("")        
-    const skillBody = {
-        name: skillName,
-        description: skillDescription,
-        userFromSkill: {id: 1}
-    }
-
-    const [skillNameForEdit, setSkillNameForEdit] = useState("")
-    const [skillDescriptionForEdit, setSkillDescriptionForEdit] = useState("")   
-
-    
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
     function openCloseModal(){
@@ -28,6 +16,24 @@ export const SkillsComponent = _ => {
         } else{
             setModalIsOpen(false)
         } 
+    }
+
+    const [modalEditIsOpen, setModalEditIsOpen] = useState(false)
+    function openEditModal(){
+        setModalEditIsOpen(true)
+    }
+    function closeEditModal(){
+        setModalEditIsOpen(false)
+        localStorage.removeItem("idSelecionedForEdit")
+    }
+
+    const [modalDeleteIsOpen, setModalDeleteIsOpen] = useState(false)
+    async function openDeleteModal(){
+        setModalDeleteIsOpen(true)
+    }
+    function closeDeleteModal(){
+        setModalDeleteIsOpen(false)
+        localStorage.removeItem("idSelecionedForDelete")
     }
 
     let imagemAtual = ""
@@ -44,13 +50,12 @@ export const SkillsComponent = _ => {
         }
     }
 
-    const [modalDeleteIsOpen, setModalDeleteIsOpen] = useState(false)
-    async function openDeleteModal(){
-        setModalDeleteIsOpen(true)
-    }
-    function closeDeleteModal(){
-        setModalDeleteIsOpen(false)
-        localStorage.removeItem("idSelecionedForDelete")
+    const [skillName, setSkillName] = useState("")
+    const [skillDescription, setSkillDescription] = useState("")        
+    const skillBody = {
+        name: skillName,
+        description: skillDescription,
+        userFromSkill: {id: 1}
     }
 
     const [skills, setSkills] = useState([])
@@ -74,19 +79,12 @@ export const SkillsComponent = _ => {
             .catch(e => console.log(e))
     }
 
+    const [skillNameForEdit, setSkillNameForEdit] = useState("")
+    const [skillDescriptionForEdit, setSkillDescriptionForEdit] = useState("")   
     let skillBodyForEdit = {
-        name: skillNameForEdit || skillForEdit.name,
+        name: skillNameForEdit,
         description: skillDescriptionForEdit,
         userFromSkill: {id: 1}
-    }
-
-    const [modalEditIsOpen, setModalEditIsOpen] = useState(false)
-    function openEditModal(){
-        setModalEditIsOpen(true)
-    }
-    function closeEditModal(){
-        setModalEditIsOpen(false)
-        localStorage.removeItem("idSelecionedForEdit")
     }
 
     return (
@@ -124,7 +122,8 @@ export const SkillsComponent = _ => {
                     {/* USAR URL + ID NO MAP (FIND BY ID) */}
 
                     <div key={skillForEdit.id} className="content"> 
-                        <h1>Edite sua Skill</h1>
+                        <button className="close"><i className ="fi fi-br-cross" onClick={() => closeEditModal()}></i></button>
+                        <h1>Edite sua Skill !</h1>
                         
                         <input 
                         type="text" 
@@ -139,8 +138,7 @@ export const SkillsComponent = _ => {
                         id={"skillDesInput"}
                         />
                         <div className="buttons">
-                            <button onClick={() => closeEditModal()}>X</button>
-                            <button onClick={() => {
+                            <button className="edit" onClick={() => {
                                 if((skillNameForEdit === undefined || skillNameForEdit === "" || skillNameForEdit === null) && (skillDescriptionForEdit === undefined || skillDescriptionForEdit === "" || skillDescriptionForEdit === null)){
                                     skillBodyForEdit = {
                                         name: skillForEdit.name,
@@ -162,8 +160,20 @@ export const SkillsComponent = _ => {
                                 } else {}
 
                                 editSkill(skillBodyForEdit)
-                            }}>Sim</button>
+                            }}>Confirmar</button>
                         </div>
+                    </div>
+                </div>
+            )}
+
+            { modalDeleteIsOpen === true &&(
+                <div className="modalDelete">
+                    <div className="content">
+                        <h1>Tem certeza que deseja deletar essa skill?</h1>
+                        <div className="buttons">
+                            <button onClick={() => closeDeleteModal()}>Não</button>
+                            <button onClick={() => deleteSkill()}>Sim</button>
+                        </div> 
                     </div>
                 </div>
             )}
@@ -185,12 +195,12 @@ export const SkillsComponent = _ => {
                         skills.map(skill => {
                             return(
                                 <div key={skill.id} className="cardSkill">
-                                    <button className="editSkill" >
-                                    <i className="fi fi-br-cross" onClick={() => {
-                                            localStorage.setItem("idSelecionedForEdit", skill.id)
-                                            getSkillById(skill.id)
-                                            openEditModal()
-                                    }}/>
+                                    <button className="editSkill">
+                                        <i className="fi fi-br-edit" onClick={() => {
+                                                localStorage.setItem("idSelecionedForEdit", skill.id)
+                                                getSkillById(skill.id)
+                                                openEditModal()
+                                        }}/>
                                     </button>
                                     <button className="deleteSkill" >
                                         <i className="fi fi-br-cross" onClick={() => {
@@ -205,18 +215,6 @@ export const SkillsComponent = _ => {
                             )
                         })
                     }
-            
-                    { modalDeleteIsOpen === true &&(
-                        <div className="modalDelete">
-                            <div className="content">
-                                <h1>Tem certeza que deseja deletar essa skill?</h1>
-                                <div className="buttons">
-                                    <button onClick={() => closeDeleteModal()}>Não</button>
-                                    <button onClick={() => deleteSkill()}>Sim</button>
-                                </div> 
-                            </div>
-                        </div>
-                    )}
                 </article>
             )}
         </div>
