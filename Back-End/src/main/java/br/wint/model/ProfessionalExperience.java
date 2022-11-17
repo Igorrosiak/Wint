@@ -35,7 +35,6 @@ public class ProfessionalExperience {
     @Getter
     private String description;
 
-
     @ManyToOne
     @JoinColumn(name = "userExperiences_id")
     private User userExperiences;

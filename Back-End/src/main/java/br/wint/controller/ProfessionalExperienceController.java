@@ -14,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("professional-experience")
+@CrossOrigin("*")
 public class ProfessionalExperienceController {
 
     @Autowired
@@ -81,3 +82,5 @@ public class ProfessionalExperienceController {
         }
     }
 }
+
+
