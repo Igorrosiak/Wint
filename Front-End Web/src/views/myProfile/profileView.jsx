@@ -10,7 +10,7 @@ export const ProfileView = _ => {
     useEffect(() => {
         setTimeout(() => {
           setAnimationDidEnd(true);
-        }, 9000);
+        }, 6000);
       });
 
     return (
