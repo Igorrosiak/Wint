@@ -44,163 +44,96 @@ export const RecommendationComponent = _ => {
     const getRecommendations = async () => {
         await axios
             .get("http://localhost:8080/recommendation/")
-            .then(res => recommendations(res.data))
+            .then(res => setRecommendations(res.data))
             .catch(e => console.log(e))
     }
 
     useEffect(() => {
         getRecommendations()
-        console.log(modalDeleteProfExpIsOpen);
-    }, [modalDeleteProfExpIsOpen])
+        console.log(modalDeleteRecommendationIsOpen);
+    }, [modalDeleteRecommendationIsOpen])
 
-    const [profExpForEdit, setProfExpForEdit] = useState("")
-    async function getProfExpById() {
+    const [recommendationForEdit, setRecommendationForEdit] = useState("")
+    async function getRecommendationById() {
         await axios
-            .get("http://localhost:8080/professional-experience/" + localStorage.getItem("idSelecionedForEdit"))
-            .then(res => setProfExpForEdit(res.data))
+            .get("http://localhost:8080/recommendation/" + localStorage.getItem("idSelecionedForEdit"))
+            .then(res => setRecommendationForEdit(res.data))
             .catch(e => console.log(e))
     }
 
-    const [profExpCompanyForEdit, setProfExpCompanyForEdit] = useState("")
-    const [profExpRoleForEdit, setProfExpRoleForEdit] = useState("")
-    const [profExpPlaceForEdit, setProfExpPlaceForEdit] = useState("")
-    const [profExpDataForEdit, setProfExpDataForEdit] = useState("")
-    const [profExpTagForEdit, setProfExpTagForEdit] = useState("")
-    const [profExpDescriptionForEdit, setProfExpDescriptionForEdit] = useState("")  
-    let profExpBodyForEdit = {
-        company: profExpCompanyForEdit,
-        role: profExpRoleForEdit,
-        place: profExpPlaceForEdit,
-        data: profExpDataForEdit,
-        tag: profExpTagForEdit,
-        description: profExpDescriptionForEdit,
-        userExperiences: {id: 1}
+    const [recommendationDescriptionForEdit, setRecommendationDescriptionForEdit] = useState("")
+    const recommendationBodyForEdit = {
+        description: recommendationDescriptionForEdit,
+        userRecommended: {id: 1},
+        userWhoRecommended: {id: 2}
     }
 
     return (
         <div className="main-profExp">
 
-            { modalAddProfExpIsOpen === true &&(
+            { modalAddRecommendationIsOpen === true &&(
                 <div className="modal" >
                     <div className="content">
-                        <button className="closeModal"><i className ="fi fi-br-cross" onClick={openCloseModalOfProfExp}></i></button>
-                        <h1 className="textModal">Adicione sua nova Experiência Profissional!</h1>
+                        <button className="closeModal"><i className ="fi fi-br-cross" onClick={openCloseModalOfRecommendation}></i></button>
+                        <h1 className="textModal">Adicione uma recomendaçao!</h1>
 
                         <input
-                            value={profExpCompany}
+                            value={recommendationDescription}
                             onChange={(e) => {
-                                setProfExpCompany(e.target.value)
+                                setRecommendationDescription(e.target.value)
                             }}
                             className="inputModal"
                             type="text"
-                            placeholder="Nome da Empresa"
+                            placeholder="Sua avaliaçao do usuario"
                         />
-                        <input
-                            value={profExpRole}
-                            onChange={(e) => {
-                                setProfExpRole(e.target.value)
-                            }}
-                            className="inputModal"
-                            type="text"
-                            placeholder="Seu Cargo ou Função"
-                        />
-                        <input
-                            value={profExpPlace}
-                            onChange={(e) => {
-                                setProfExpPlace(e.target.value)
-                            }}
-                            className="inputModal"
-                            type="text"
-                            placeholder="Local do seu Trabalho"
-                        />
-                        <input
-                            value={profExpData}
-                            onChange={(e) => {
-                                setProfExpData(e.target.value)
-                            }}
-                            className="inputModal"
-                            type="date"
-                            placeholder="Periodo de trabalho"
-                        />
-                        <input
-                            value={profExpTag}
-                            onChange={(e) => {
-                                setProfExpTag(e.target.value)
-                            }}
-                            className="inputModal"
-                            type="text"
-                            placeholder="Suas tags (assunto)"
-                        />
-                        <input
-                            value={profExpDescription}
-                            onChange={(e) => {
-                                setProfExpDescription(e.target.value)
-                            }}
-                            className="inputModal"
-                            type="text"
-                            placeholder="Descrição do seu trabalho"
-                        />
-                        <button className="submitNewSkill" onClick={() => createProfExp(profExpBody)}>Inserir Experiência Profissional</button>
+                        <button className="submitNewSkill" onClick={() => createRecommendation(recommendationBody)}>Inserir Experiência Profissional</button>
                     </div>
                 </div>
             )}
 
-            { modalEditProfExpIsOpen === true &&(
+            { modalEditRecommendationIsOpen === true &&(
                 <div className="modalEdit">
                     {/* ARRUMAR */}
 
-                    {/* <div key={skillForEdit.id} className="content"> 
-                        <button className="close"><i className ="fi fi-br-cross" onClick={() => closeEditModalOfProfExp()}></i></button>
+                    <div key={recommendationForEdit.id} className="content"> 
+                        <button className="close"><i className ="fi fi-br-cross" onClick={() => closeEditModalOfRecommendation()}></i></button>
                         <h1>Edite sua Skill !</h1>
                         
                         <input 
                         type="text" 
-                        defaultValue={skillForEdit.name}
-                        onChange={(e) => {setSkillNameForEdit(e.target.value)}}
-                        id={"skillNameInput"}
-                        />
-                        <input 
-                        type="text" 
-                        defaultValue={skillForEdit.description}
-                        onChange={(e) => {setSkillDescriptionForEdit(e.target.value)}}
-                        id={"skillDesInput"}
+                        defaultValue={recommendationForEdit.description}
+                        onChange={(e) => {setRecommendationDescription(e.target.value)}}
+                        id={"recommendationDescriptionInput"}
                         />
                         <div className="buttons">
                             <button className="edit" onClick={() => {
-                                if((skillNameForEdit === undefined || skillNameForEdit === "" || skillNameForEdit === null) && (skillDescriptionForEdit === undefined || skillDescriptionForEdit === "" || skillDescriptionForEdit === null)){
-                                    skillBodyForEdit = {
-                                        name: skillForEdit.name,
-                                        description: skillForEdit.description,
-                                        userFromSkill: {id: 1}
+                                if(recommendationDescriptionForEdit === undefined || recommendationDescriptionForEdit === "" || recommendationDescriptionForEdit === null){
+                                    recommendationBodyForEdit = {
+                                        description: recommendationForEdit.description,
+                                        userRecommended: {id: 1},
+                                        userWhoRecommended: {id: 2}
                                     }
-                                } else if(skillNameForEdit === undefined || skillNameForEdit === "" || skillNameForEdit === null){
-                                    skillBodyForEdit = {
-                                        name: skillForEdit.name,
-                                        description: skillDescriptionForEdit,
-                                        userFromSkill: {id: 1}
+                                } else {
+                                    recommendationBodyForEdit = {
+                                        description: recommendationDescriptionForEdit,
+                                        userRecommended: {id: 1},
+                                        userWhoRecommended: {id: 2}
                                     }
-                                } else if(skillDescriptionForEdit === undefined || skillDescriptionForEdit === "" || skillDescriptionForEdit === null){
-                                    skillBodyForEdit = {
-                                        name: skillNameForEdit,
-                                        description: skillForEdit.description,
-                                        userFromSkill: {id: 1}
-                                    }
-                                } else {}
-
-                                editSkill(skillBodyForEdit)
+                                } 
+                                editRecommendation(recommendationBodyForEdit)
                             }}>Confirmar</button>
                         </div>
-                    </div> */}
+                    </div>
                 </div>
             )}
 
-            { modalDeleteProfExpIsOpen === true &&(
+            { modalDeleteRecommendationIsOpen === true &&(
                 <div className="modalDelete">
                     <div className="content">
                         <h1>Tem certeza que deseja deletar essa skill?</h1>
                         <div className="buttons">
-                            <button onClick={() => closeDeleteModalOfProfExp()}>Não</button>
-                            <button onClick={() => deleteProfExp()}>Sim</button>
+                            <button onClick={() => closeDeleteModalOfRecommendation()}>Não</button>
+                            <button onClick={() => deleteRecommendation()}>Sim</button>
                         </div> 
                     </div>
                 </div>
@@ -210,38 +143,35 @@ export const RecommendationComponent = _ => {
 
             <div className="header">
                 <h1>Experiências Profissionais</h1>
-                <button className="newSkill" onClick={openCloseModalOfProfExp}><i className="fi fi-br-plus"></i></button>
+                <button className="newSkill" onClick={openCloseModalOfRecommendation}><i className="fi fi-br-plus"></i></button>
             </div>
 
-            { profExps.length === 0 &&(
+            { recommendations.length === 0 &&(
                 <h2 className="textMotivate">Adicione uma experiência profissional!</h2>
             )}
 
-            { profExps.length !== 0 &&(
+            { recommendations.length !== 0 &&(
                 <article className="rowSkills">
                     {
-                        profExps.map(profExp => {
+                        recommendations.map(recommendation => {
                             return(
-                                <div key={profExp.id} className="cardSkill">
+                                <div key={recommendation.id} className="cardSkill">
                                     <button className="editSkill">
                                         <i className="fi fi-br-edit" onClick={() => {
-                                                localStorage.setItem("idSelecionedForEdit", profExp.id)
-                                                getProfExpById(profExp.id)
-                                                openEditModalOfProfExp()
+                                                localStorage.setItem("idSelecionedForEdit", recommendation.id)
+                                                getRecommendationById(recommendation.id)
+                                                openEditModalOfRecommendation()
                                         }}/>
                                     </button>
                                     <button className="deleteSkill" >
                                         <i className="fi fi-br-cross" onClick={() => {
-                                            localStorage.setItem("idSelecionedForDelete", profExp.id)
-                                            openDeleteModalOfProfExp()
+                                            localStorage.setItem("idSelecionedForDelete", recommendation.id)
+                                            openDeleteModalOfRecommendation()
                                         }}/>
                                     </button>
-                                    <h3>{profExp.company}</h3>
-                                    <p>{profExp.role}</p>
-                                    <p>{profExp.place}</p>
-                                    <p>{profExp.data}</p>
-                                    <p>{profExp.tag}</p>
-                                    <p>{profExp.description}</p>
+                                    <h3>{recommendation.description}</h3>
+                                    <h3>{recommendation.userRecommended}</h3>
+                                    <h3>{recommendation.userWhoRecommended}</h3>
                                 </div>
                             )
                         })
