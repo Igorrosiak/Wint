@@ -84,21 +84,21 @@ $animation_duration: 10s;
 
 @keyframes backgroundAnimation {
   0% {
-    background: linear-gradient(-90deg, #187DCF 9.48%, #405BAA 26.2%, #62268D 67.1%, #671E88 78.14%);
+    background: linear-gradient(-90deg, rgb(247, 246, 244));
     background-blend-mode: multiply;
   }
 
   40% {
-    background: linear-gradient(-90deg, #187DCF 9.48%, #405BAA 26.2%, #62268D 67.1%, #671E88 78.14%);
+    background: linear-gradient(-90deg, rgb(247, 244, 244));
     background-blend-mode: multiply;
   }
 
   60% {
-    background: linear-gradient(-90deg, #187DCF 9.48%, #405BAA 26.2%, #62268D 67.1%, #671E88 78.14%);
+    background: linear-gradient(-90deg, rgb(247, 238, 238));
   }
 
   100% {
-    background: linear-gradient(-90deg, #187DCF 9.48%, #405BAA 26.2%, #62268D 67.1%, #671E88 78.14%);
+    background: linear-gradient(-90deg, rgb(233, 233, 233));
   }
 }
 
