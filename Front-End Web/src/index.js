@@ -9,8 +9,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<SignUpView/>} />
-      <Route path="/login" element={<SignInView/>} />
+      <Route path="/registro" element={<SignUpView/>} />
+      <Route path="/" element={<SignInView/>} />
     </Routes>
   </BrowserRouter>
 );
