@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { SignUpView } from './views/signUp/signUpView';
 import { SignInView } from './views/signIn/signInView';
 import { ProfileView } from './views/myProfile/profileView';
-import { EditProfileView } from './views/profile/profileView';
+import { EditProfileView } from './views/profile/editProfileView';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

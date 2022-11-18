@@ -1,6 +1,6 @@
-import "./profileView.scss"
+import "./editProfileView.scss"
 import  user  from "../../assets/images/user.png"
-export const ProfileView = _ => {
+export const EditProfileView = _ => {
     return (
         <main className="profile">
             <div className="main">
