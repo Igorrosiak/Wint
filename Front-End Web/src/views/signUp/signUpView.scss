@@ -1,124 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: white;
+    font-family: 'Raleway', sans-serif;
+    color: #8145e2;
     text-decoration: none;
 }
 
 body{
-    overflow: hidden;
-    // background: linear-gradient(270deg, #25229b, #2c1586, #5c2ca0);
-    background-size: 600% 600%;
-    background-color: rgb(44, 21, 134);
-    -webkit-animation: AnimationName 20s ease infinite;
-    -moz-animation: AnimationName 20s ease infinite;
-    -o-animation: AnimationName 20s ease infinite;
-    animation: AnimationName 20s ease infinite;  
+    overflow-x: hidden;
+    background-color:#FEFEFE;
+
 }
-
-
-// Circulos
-.azul-circulo{
-    /* Ellipse 16 */
-    width: 1000px;
-    height:800.27px;
-    right:56%;
-    padding-top:0;
-    position: fixed;
-    z-index: -1;
-   /* Azul Radial */
-   background: radial-gradient(41.93% 50% at 50% 50%, #81E4FA 4.17%, #2772C0 42.71%, rgba(39, 114, 192, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-   filter: blur(100px);
-   transform: rotate(-70.41deg);
-  }
-  
-  .roxo-circulo{
-    width: 1000px;
-    height:800.27px;
-    left:60%;
-    padding-bottom:0;
-    position: fixed;
-    z-index: -1;
-    /* Roxo Radial */
-    background: radial-gradient(41.93% 50% at 50% 50%, #BF5CE2 3.13%, #7030A0 42.71%, rgba(112, 48, 160, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
-    filter: blur(100px);
-    transform: rotate(-70.41deg);
-  }
-  
-  
-  
-  .rotate-right {
-  -webkit-animation: rotate-right 20s linear infinite backwards;
-          animation: rotate-right 20s linear infinite backwards;
-  }
-  
-  @-webkit-keyframes rotate-right {
-    0% {
-      -webkit-transform: rotate(0);
-              transform: rotate(0);
-      -webkit-transform-origin: right;
-              transform-origin: right;
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
-      -webkit-transform-origin: right;
-              transform-origin: right;
-    }
-  }
-  @keyframes rotate-right {
-    0% {
-      -webkit-transform: rotate(0);
-              transform: rotate(0);
-      -webkit-transform-origin: right;
-              transform-origin: right;
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
-      -webkit-transform-origin: right;
-              transform-origin: right;
-    }
-  }
-  
-  .rotate-left {
-  -webkit-animation: rotate-left 20s  linear infinite backwards;
-          animation: rotate-left 20s linear infinite backwards;
-  }
-  
-  @-webkit-keyframes rotate-left {
-    0% {
-      -webkit-transform: rotate(0);
-              transform: rotate(0);
-      -webkit-transform-origin: left;
-              transform-origin: left;
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
-      -webkit-transform-origin: left;
-              transform-origin: left;
-    }
-  }
-  @keyframes rotate-left {
-    0% {
-      -webkit-transform: rotate(0);
-              transform: rotate(0);
-      -webkit-transform-origin: left;
-              transform-origin: left;
-    }
-    100% {
-      -webkit-transform: rotate(360deg);
-              transform: rotate(360deg);
-      -webkit-transform-origin: left;
-              transform-origin: left;
-    }
-  }
-  
-
 
 main.singUp {
     width: 100vw;
@@ -128,22 +24,20 @@ main.singUp {
     text-align: center;
 
     div.checkbox-terms {
-        margin-top: 1.6em;
+        margin-top: 3em;
         a {
             color: blueviolet;
             text-decoration: underline;
         }
 
+        label{
+            color: blueviolet;
+        }
+
         input.terms-checkbox {
             height: 20px;
             width: 25px;
-            color: rgb(192, 49, 49);
-            border: solid 1px whitesmoke;
-        }
-
-        /* On mouse-over, add a grey background color */
-        .terms-checkbox:hover~input {
-            background-color: rgb(38, 177, 136);
+            border: solid 1px rgb(71, 70, 70);
         }
     }
 
@@ -156,76 +50,43 @@ main.singUp {
         margin-top: 2em;
 
         img {
-            width: auto;
-            height: 100%;
+            width: 10%;
+            height: auto;
         }
     }
 
     .form-singup {
-        display: block;
+        display: inline-block;
         width: 100vw;
         height: 35vh;
-        padding-left: 6%;
-        margin-top: 3%;
+        margin: auto;
 
-        .label-float {
-            position: relative;
-            padding-top: 25px;
-            padding-bottom: 25px;
-            width: 34%;
-            display: inline-flex;
+        .label-float{
+            display: inline-block;
+            width: 35%;
+            margin-right: 5%;
+
         }
-        
-        .label-float input {
-            border: 0;
-            border-bottom: 2px solid lightgrey;
+        label{
+            font-family: 'Raleway', sans-serif;
+            color: #666;    
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        input{
+            font-family: 'Raleway', sans-serif;
+            color: #666;
+            text-align: center;
+            width: 100%;
+            background: #e6e6e6;
+            height: 50px;
+            border-radius: 25px;
+            padding: 0 20px 0 20px;
             outline: none;
-            min-width: 350px;
-            font-size: 15px;
-            transition: all .3s ease-out;
-            -webkit-transition: all .3s ease-out;
-            -moz-transition: all .3s ease-out;
-            -webkit-appearance: none;
-            border-radius: 0;
-            background-color: transparent;
-        }
-
-        .label-float input:focus {
-            border-bottom: 2px solid #ffffff;
-        }
-
-        .label-float input::placeholder {
-            color: transparent;
-        }
-
-        .label-float label {
-            pointer-events: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin-top: 13px;
-            transition: all .3s ease-out;
-            -webkit-transition: all .3s ease-out;
-            -moz-transition: all .3s ease-out;
-        }
-
-        .label-float input:required:invalid+label {
-            color: whitesmoke;
-        }
-
-        .label-float input:focus:required:invalid {
-            border-bottom: 2px solid whitesmoke;
-        }
-
-        .label-float input:required:invalid+label:before {
-            content: '*';
-        }
-
-        .label-float input:focus+label,
-        .label-float input:not(:placeholder-shown)+label {
-            font-size: 12px;
-            margin-top: 0;
-            color: #ffffff;
+            border: none;
+            margin-bottom: 3em;
         }
     }
 
@@ -233,10 +94,11 @@ main.singUp {
         margin-top: 2.5em;
         background-color: transparent;
         button{
-            background-color: azure;
+            font-family: 'Raleway', sans-serif;
+            background-color: blueviolet;
             border-radius: 20px;
-            color: blueviolet;
-            width: 150px;
+            color: azure;
+            width: 200px;
             height: 40px;
             font-size: 20px;
             font-weight: 500;
@@ -255,7 +117,7 @@ main.singUp {
         
 
         .label-float input {
-            background-color: blue;
+            background-color: #FEFEFE;
             min-width: 100px;
             font-size: 12px;
         }

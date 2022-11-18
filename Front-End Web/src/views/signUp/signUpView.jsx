@@ -12,36 +12,36 @@ export const SignUpView = _ => {
                 </div>
                 <div className="form-singup">
                     <div class="label-float">
-                        <input type="text" placeholder=" " />
                         <label>Nome</label>
-                    </div>
-                    <div class="label-float">
-                        <input type="text" placeholder=" " required />
-                        <label>Sobrenome</label>
-                    </div>
-                    <div class="label-float">
-                        <input type="date" placeholder=" " />
-                        <label>Data de Nascimento</label>
-                    </div>
-                    <div class="label-float">
-                        <input type="text" placeholder=" " required />
-                        <label>Nome de Usuário</label>
-                    </div>
-                    <div class="label-float">
                         <input type="text" placeholder=" " />
-                        <label>Email</label>
                     </div>
                     <div class="label-float">
+                        <label>Sobrenome</label>
                         <input type="text" placeholder=" " required />
+                    </div>
+                    <div class="label-float">
+                        <label>Data de Nascimento</label>
+                        <input type="date" placeholder=" " />
+                    </div>
+                    <div class="label-float">
+                        <label>Nome de Usuário</label>
+                        <input type="text" placeholder=" " required />
+                    </div>
+                    <div class="label-float">
+                        <label>Email</label>
+                        <input type="text" placeholder=" " />
+                    </div>
+                    <div class="label-float">
                         <label>Telefone</label>
+                        <input type="text" placeholder=" " required />
                     </div>
                     <div class="label-float">
-                        <input type="password" placeholder=" " />
                         <label>Senha</label>
+                        <input type="password" placeholder=" " />
                     </div>
                     <div class="label-float">
-                        <input type="password" placeholder=" " required />
                         <label>Confirmar Senha</label>
+                        <input type="password" placeholder=" " required />
                     </div>
                 </div>
 
