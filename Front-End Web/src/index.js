@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { SignUpView } from './views/signUp/signUpView';
 import { SignInView } from './views/signIn/signInView';
+import { ProfileView } from './views/myProfile/profileView';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
