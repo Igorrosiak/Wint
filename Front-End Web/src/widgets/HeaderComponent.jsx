@@ -1,4 +1,6 @@
 import logoWint from '../assets/images/logo-completa-wint.svg'
+import backgroundImage from '../assets/images/background-image.svg'
+import imagePerfil from '../assets/images/image-teste-perfil.svg'
 import '../assets/scss/profileView.scss'
 import '../assets/scss/navbar.scss'
 
@@ -27,11 +29,13 @@ export const HeaderComponent = _ => {
             <div className="body-header">
                 <div className="col">
                     <div className="class-component">
-                        <p>H e l l o W o r d!</p>
+                        <p>- HELLO WORD</p>
                     </div>
 
                     <div className="infos">
-                        <h2>Gabriela Senna</h2>
+                        <div className='name'>
+                            <h2 id='first'>Gabriela</h2><h2 id='last'>Senna</h2>
+                        </div>
                         <p>Seja bem vindo ao meu portfolio virtual da Wint, aqui voce encontrara meus trabalhos do senai, cursos especializantes e demais areas que mando bem! </p>
                     </div>
 
@@ -42,7 +46,8 @@ export const HeaderComponent = _ => {
 
                 <div className="col">
                     <div className="image-perfil">
-                        <img src="" alt=""/>
+                        <img src={backgroundImage}  className="back"/>
+                        <img src={imagePerfil} className="image" />
                     </div>
                 </div>
             </div>

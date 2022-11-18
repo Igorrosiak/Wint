@@ -18,31 +18,92 @@ main.myProfile{
     .body-header{
         width: 100vw;
         height: 100vh;
-        display: inline-flex;
-        flex-direction: column;
+        display: flex;
+        flex-direction: row;
         
         .col{
-            margin-top: 15em;
+            margin-top: 20em;
             width: 45vw;
             height: 45vh;
 
             .class-component{
                 p{
                     color: grey;
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 30px;
+                    letter-spacing: 7.5px;
+                    text-align: left;
+                    margin-left: 22em;
                 }
             }
 
             .infos{
-                h2{
-                    color: black;
+                
+                .name{
+                    display: inline-flex;
+                    
+                    h2{
+                        font-family: 'Plus Jakarta Sans';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 44px;
+                        line-height: 55px;
+                        margin-right: 0.3em;
+                    }
+                    #first{
+                        color: black;
+                    }
+                    #last{
+                        color: #4D3A99;
+                    }
+                    
                 }
+
                 p{
                     color: black;
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 32px;
+                    text-align: left;
+                    align-content: center;
+                    margin-left: 16em;
+                    margin-top: 1em;
+                    width: 65%;
                 }
             }
 
             .social-media{
 
+            }
+
+            .image-perfil{
+                margin-top: 20em;
+                width: 45vw;
+                height: 40vh;
+
+                .back{
+                    width: 351px;
+                    height: 408px;
+                    right: 20em;
+                    top: 258px;
+                    z-index: 0;
+                    position: absolute;
+                    transform: rotate(-7.55deg);
+                }
+
+               .image{
+                    width: 336px;
+                    height: 400px;
+                    right: 20em;
+                    top: 258px;
+                    z-index: 2;
+                    position: absolute;
+                }
             }
         }
     }
