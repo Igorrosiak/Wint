@@ -13,4 +13,13 @@ public class MeuPerfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meu_perfil);
     }
+    public void sair(View v){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void perfil(View v){
+        Intent intent = new Intent(getApplicationContext(), MeuPerfilActivity.class);
+        startActivity(intent);
+    }
 }

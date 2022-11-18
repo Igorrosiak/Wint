@@ -10,7 +10,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gradient"
         tools:context=".FeedActivity">
 
         <ImageView
@@ -43,8 +42,26 @@
             android:layout_height="54dp"
             android:onClick="perfil"
             app:srcCompat="@android:drawable/sym_def_app_icon"
-            tools:layout_editor_absoluteX="167dp"
-            tools:layout_editor_absoluteY="32dp" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="249dp"
+            tools:layout_editor_absoluteY="299dp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="149dp"
+            android:layout_height="93dp"
+            app:srcCompat="@drawable/logoroxa"
+            tools:layout_editor_absoluteX="5dp"
+            tools:layout_editor_absoluteY="-1dp" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="190dp"
+            android:layout_height="160dp"
+            android:onClick="perfil"
+            app:srcCompat="@drawable/user"
+            tools:layout_editor_absoluteX="271dp"
+            tools:layout_editor_absoluteY="-25dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
