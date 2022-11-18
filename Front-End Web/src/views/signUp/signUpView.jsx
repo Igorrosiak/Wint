@@ -9,6 +9,7 @@ export const SignUpView = _ => {
             <main className="singUp">
                 <div className="box-image">
                     <img src={nameWint} alt="Logo escrita Wint" />
+                    <h2>Engaje sua carreira com Wint. Cadastre-se abaixo</h2>
                 </div>
                 <div className="form-singup">
                     <div class="label-float">

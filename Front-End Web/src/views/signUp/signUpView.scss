@@ -24,7 +24,7 @@ main.singUp {
     text-align: center;
 
     div.checkbox-terms {
-        margin-top: 3em;
+        margin-top: 2em;
         a {
             color: blueviolet;
             text-decoration: underline;
@@ -32,11 +32,14 @@ main.singUp {
 
         label{
             color: blueviolet;
+            font-family: 'Raleway', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
         }
 
         input.terms-checkbox {
-            height: 20px;
-            width: 25px;
+            height: 15px;
+            width: 15px;
             border: solid 1px rgb(71, 70, 70);
         }
     }
@@ -47,11 +50,24 @@ main.singUp {
         align-items: center;
         text-align: center;
         align-content: center;
-        margin-top: 2em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        display: block;
 
         img {
-            width: 10%;
+            width: 8%;
             height: auto;
+        }
+
+        h2{
+            font-family: 'Raleway', sans-serif;
+            color: blueviolet;
+            font-size: 30px;
+            font-weight: 500;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 1em;
         }
     }
 
@@ -91,14 +107,14 @@ main.singUp {
     }
 
     .button-singup{
-        margin-top: 2.5em;
+        margin-top: 1.5em;
         background-color: transparent;
         button{
             font-family: 'Raleway', sans-serif;
             background-color: blueviolet;
             border-radius: 20px;
             color: azure;
-            width: 200px;
+            width: 240px;
             height: 40px;
             font-size: 20px;
             font-weight: 500;
