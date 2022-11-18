@@ -19,7 +19,7 @@ export const WorksComponent = _ => {
                   <img src={right} alt="right" className="back"/>
               </div>
           </div>
-          <article className="image-box">
+          {/* <article className="image-box">
               <div className='box-img'>
                   <img src={image1} />
               </div>
@@ -29,7 +29,7 @@ export const WorksComponent = _ => {
               <div className="box-img">
                   <img src={image3} />
               </div>
-          </article>
+          </article> */}
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import '../assets/scss/loadingpage.scss'
-import Logo from '../assets/images/logo-texto.svg'
-import Simbolo from '../assets/images/logo-texto.svg'
+import Logo from '../assets/images/texto-logo.svg'
+import Simbolo from '../assets/images/simbolo-wint.svg'
 
 export default function Animation(){
     return(

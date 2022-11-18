@@ -1,4 +1,4 @@
-$animation_duration: 10s;
+$animation_duration: 8s;
 
 .MainLoadingView {
   width: 100vw;
@@ -12,21 +12,21 @@ $animation_duration: 10s;
 
   .simbolo{
     position: absolute;
-    width: 109.55px;
-    height: 111.72px;
-    left: 902px;
-    top: 42.59%;
-
+    height: 200px;
+    width: 200px;
+    left: 42.7%;
+    top: 35%;
+    
     -webkit-animation: rotate-center 2.6s ease-in both;
     animation: rotate-center 2.6s ease-in both;
   }
 
   .logo-completa{
+    height: 160px;
+    width: 518px;
+    left: 42%;
+    top: 36%;
     position: absolute;
-    width: 451px;
-    height: 131px; 
-    left: 810px;
-    top: 43%;
 
     -webkit-animation: fade-in 1.5s ease-out 2.6s both;
     animation: fade-in 1.5s ease-out 2.6s both;
@@ -44,8 +44,8 @@ $animation_duration: 10s;
             transform: rotate(360deg);
   }
   100%{
-    -webkit-transform: translateX(-100px);
-      transform: translateX(-100px);
+    -webkit-transform: translateX(-170px);
+      transform: translateX(-170px);
   }
 }
 @keyframes rotate-center {
@@ -58,8 +58,8 @@ $animation_duration: 10s;
             transform: rotate(360deg);
   }
   100%{
-      -webkit-transform: translateX(-100px);
-          transform: translateX(-100px);
+      -webkit-transform: translateX(-170px);
+          transform: translateX(-170px);
   }
 }
 
@@ -84,21 +84,21 @@ $animation_duration: 10s;
 
 @keyframes backgroundAnimation {
   0% {
-    background: linear-gradient(-90deg, #187DCF 9.48%, #405BAA 26.2%, #62268D 67.1%, #671E88 78.14%);
+    background: linear-gradient(-90deg, rgb(247, 246, 244));
     background-blend-mode: multiply;
   }
 
   40% {
-    background: linear-gradient(-90deg, #187DCF 9.48%, #405BAA 26.2%, #62268D 67.1%, #671E88 78.14%);
+    background: linear-gradient(-90deg, rgb(247, 244, 244));
     background-blend-mode: multiply;
   }
 
   60% {
-    background: linear-gradient(-90deg, #187DCF 9.48%, #405BAA 26.2%, #62268D 67.1%, #671E88 78.14%);
+    background: linear-gradient(-90deg, rgb(247, 238, 238));
   }
 
   100% {
-    background: linear-gradient(-90deg, #187DCF 9.48%, #405BAA 26.2%, #62268D 67.1%, #671E88 78.14%);
+    background: linear-gradient(-90deg, rgb(233, 233, 233));
   }
 }
 
