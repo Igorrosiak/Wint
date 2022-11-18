@@ -206,7 +206,7 @@ export const ProfExpComponent = _ => {
             { modalDeleteProfExpIsOpen === true &&(
                 <div className="modalDelete">
                     <div className="content">
-                        <h1>Tem certeza que deseja deletar essa skill?</h1>
+                        <h1>Tem certeza que deseja deletar essa experiência?</h1>
                         <div className="buttons">
                             <button onClick={() => closeDeleteModalOfProfExp()}>Não</button>
                             <button onClick={() => deleteProfExp()}>Sim</button>

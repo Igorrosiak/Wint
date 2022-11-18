@@ -15,13 +15,13 @@ export const ProfileView = _ => {
 
     return (
         <>
-            { animaionDidEnd ?
+            { /* animaionDidEnd ? */
                 <>
                 <HeaderComponent /> 
                 <SkillsComponent /> 
                 <WorksComponent/>
                 <ProfExpComponent />
-                </> : <Animation /> 
+                </> /* : <Animation />  */
             }
         </>
     )
