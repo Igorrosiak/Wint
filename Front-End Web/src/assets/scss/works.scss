@@ -5,7 +5,8 @@
 div.main-works{
     text-align: center;
     box-sizing: border-box;
-    margin: 0;
+    margin-top: 5em;
+    margin-bottom: 5em;
     padding: 0;
     
     h4{
@@ -30,6 +31,7 @@ div.main-works{
         font-weight: 700;
         font-size: 36px;
         line-height: 45px; 
+        margin-bottom: 2em;
     }
     
     div.box-header{
@@ -44,6 +46,10 @@ div.main-works{
                 margin-left: 10px;
             }
         }
+    }
+
+    .image-box{
+        display: inline-flex;
     }
 
 }

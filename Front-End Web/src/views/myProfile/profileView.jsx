@@ -19,8 +19,8 @@ export const ProfileView = _ => {
                 <>
                 <HeaderComponent /> 
                 <SkillsComponent /> 
-                <ProfExpComponent />
                 <WorksComponent/>
+                <ProfExpComponent />
                 </> : <Animation /> 
             }
         </>
