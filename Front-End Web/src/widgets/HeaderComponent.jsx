@@ -24,6 +24,28 @@ export const HeaderComponent = _ => {
                     </li>
                 </ul>
             </div>
+            <div className="body-header">
+                <div className="col">
+                    <div className="class-component">
+                        <p>H e l l o W o r d!</p>
+                    </div>
+
+                    <div className="infos">
+                        <h2>Gabriela Senna</h2>
+                        <p>Seja bem vindo ao meu portfolio virtual da Wint, aqui voce encontrara meus trabalhos do senai, cursos especializantes e demais areas que mando bem! </p>
+                    </div>
+
+                    <div className="social-media">
+                        <p>(icons)</p>
+                    </div>
+                </div>
+
+                <div className="col">
+                    <div className="image-perfil">
+                        <img src="" alt=""/>
+                    </div>
+                </div>
+            </div>
         </main>
     )
 }

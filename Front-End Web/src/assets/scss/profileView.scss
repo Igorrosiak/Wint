@@ -13,6 +13,40 @@ main.myProfile{
     display: flex;
     flex-direction: row;
     background-color:#FFF;
+    color: black;
+
+    .body-header{
+        width: 100vw;
+        height: 100vh;
+        display: inline-flex;
+        flex-direction: column;
+        
+        .col{
+            margin-top: 15em;
+            width: 45vw;
+            height: 45vh;
+
+            .class-component{
+                p{
+                    color: grey;
+                }
+            }
+
+            .infos{
+                h2{
+                    color: black;
+                }
+                p{
+                    color: black;
+                }
+            }
+
+            .social-media{
+
+            }
+        }
+    }
+
 }
 
 .nav-bar {
@@ -62,6 +96,7 @@ main.myProfile{
         }
     }
 
+  
 }
 
 .nav-bar .logo {
