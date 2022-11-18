@@ -34,6 +34,10 @@ public class UserController {
         }
     }
 
+    // URI cria url pro Usuario
+    // RequestBody é uma requisição do front-end para o servidor
+    // ResponseEntity resposta do servidor ao front-end (também é JSON)
+
     @PutMapping(value = "/{id}", produces = "application/json")
     public ResponseEntity<User> update(@RequestBody User user, @PathVariable Long id) {
         User updatedUser = userServiceImpl.update(id, user);
@@ -44,15 +48,19 @@ public class UserController {
         }
     }
 
+    // PathVariable manipula as URI's e define os id's como parâmetros
+
     @GetMapping(value = "/{id}", produces = "application/json")
-    public ResponseEntity<Optional<User>> read(@PathVariable Long id) {
-        Optional<User> foundUser = userServiceImpl.read(id);
+    public ResponseEntity<Optional<User>> findById(@PathVariable Long id) {
+        Optional<User> foundUser = userServiceImpl.findById(id);
         if (foundUser.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
             return ResponseEntity.ok(foundUser);
         }
     }
+
+    // isEmpty verifica se o tamanho é 0
 
     @GetMapping(value = "/", produces = "application/json")
     public ResponseEntity<List<User>> findAll() {
