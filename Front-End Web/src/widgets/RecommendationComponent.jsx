@@ -69,7 +69,7 @@ export const RecommendationComponent = _ => {
     }
 
     return (
-        <div className="main-profExp">
+        <div className="main-recommendation">
 
             { modalAddRecommendationIsOpen === true &&(
                 <div className="modal" >
@@ -139,15 +139,16 @@ export const RecommendationComponent = _ => {
                 </div>
             )}
 
-            <h4>- C U R R I C U L O</h4>
-
             <div className="header">
-                <h1>Experiências Profissionais</h1>
-                <button className="newSkill" onClick={openCloseModalOfRecommendation}><i className="fi fi-br-plus"></i></button>
+                <h4>- R E C O M E N D A Ç Õ E S</h4>
+                <div className="title">
+                    <h1>Testemunhas</h1>
+                    <button className="newSkill" onClick={openCloseModalOfRecommendation}><i className="fi fi-br-plus"></i></button>
+                </div>
             </div>
 
             { recommendations.length === 0 &&(
-                <h2 className="textMotivate">Adicione uma experiência profissional!</h2>
+                <h2 className="textMotivate">Adicione uma Recomendação!</h2>
             )}
 
             { recommendations.length !== 0 &&(
