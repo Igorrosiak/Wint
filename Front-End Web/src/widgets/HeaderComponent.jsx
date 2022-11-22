@@ -3,6 +3,8 @@ import backgroundImage from '../assets/images/background-image.svg'
 import imagePerfil from '../assets/images/image-teste-perfil.svg'
 import '../assets/scss/profileView.scss'
 import '../assets/scss/navbar.scss'
+import { IoIosHeart } from "react-icons/io";
+
 
 export const HeaderComponent = _ => {
     return (
@@ -40,7 +42,10 @@ export const HeaderComponent = _ => {
                     </div>
 
                     <div className="social-media">
-                        <p>(icons)</p>
+                        <i class="fi fi-brands-instagram"></i>
+                        <i class="fi fi-brands-twitter"></i>
+                        <i class="fi fi-brands-linkedin"></i>
+                        <i class="fi fi-brands-github"></i>
                     </div>
                 </div>
 
