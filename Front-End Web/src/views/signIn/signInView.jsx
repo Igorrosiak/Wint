@@ -1,36 +1,42 @@
 import "./signInView.scss"
-import logoWint from "../../assets/images/logo-wint2.png"
-import textWint from "../../assets/images/texto-wint2.png"
-import imgAppStore from "../../assets/images/imgAppStore.png"
-import imgGooglePlay from "../../assets/images/imgGooglePlay.png"
+import LogoLogin from "../../assets/images/logo-login.svg"
+
 
 export const SignInView = _ => {
     return (
-        <main className="signIn">
-            <article className="image">
-                <div className="box-image">
-                    <img src={logoWint} alt="Logo Wint" />
-                </div>
-            </article>
-            <article className="login-area">
-                <div className="form-area">
-                    <div className="image-logo">
-                        <img src={textWint} alt="Logo Wint" />
-                    </div>
-
+        <>
+            <div className="main-login">
+                <div className="col-login">
                     <div className="form">
-                        <input type="text" placeholder="LOGIN" />
-                        <input type="password" placeholder="SENHA" />
-                        <small><a href="#">ESQUECEU A SENHA?</a></small>
-                        <button>ENTRAR</button>
-                        <p>NÃO TEM UMA CONTA? <a href="#">CADASTRE-SE</a></p>
-                        <div className="images">
-                            <img className="appStore" src={imgAppStore} alt="Imagem App Store" />
-                            <img className="googlePlay" src={imgGooglePlay} alt="Imagem Google Play" />
+                        <div className="header-form">
+                            <h2>Bem-vindo(a)!</h2>
+                            <p>Coloque os dados abaixo para usufruir do melhor da Wint!</p>
+                        </div>
+
+                        <div className="body-form">
+                            <form action="/pagina-processa-dados-do-form" method="post">
+                                <div>
+                                    <label for="email">E-mail</label>
+                                    <input type="email" id="email" />
+                                </div>
+                                <div>
+                                    <label for="nome">Senha</label>
+                                    <input type="password" id="senha" />
+                                    <p>Esqueceu a senha?</p>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div className="button-form">
+                            <button>Entrar</button>
+                            <p>Ainda não tem uma conta? <b><a href="">Registre-se aqui!</a></b></p>
                         </div>
                     </div>
+                    <div className="logo">
+                        <img src={LogoLogin} alt="Logo quebrada cima e baixo" />
+                    </div>
                 </div>
-            </article>
-        </main>
+            </div>
+        </>
     )
 }

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css');
 
 *{
     margin: 0;
@@ -13,13 +14,120 @@ main.myProfile{
     display: flex;
     flex-direction: row;
     background-color:#FFF;
+    color: black;
+    z-index: 0;
+
+    .body-header{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        
+        .col{
+            margin-top: 20em;
+            width: 45vw;
+            height: 45vh;
+
+            .class-component{
+                p{
+                    color: grey;
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 30px;
+                    letter-spacing: 7.5px;
+                    text-align: left;
+                    margin-left: 13.6em;
+                }
+            }
+
+            .infos{
+                
+                .name{
+                    display: inline-flex;
+                    
+                    h2{
+                        font-family: 'Plus Jakarta Sans';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 44px;
+                        line-height: 55px;
+                        margin-right: 0.3em;
+                        text-align: left;
+                    }
+                    #first{
+                        color: black;
+                    }
+                    #last{
+                        color: #4D3A99;
+                    }
+                    
+                }
+
+                p{
+                    color: black;
+                    font-family: 'Inter';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 32px;
+                    text-align: left;
+                    align-content: center;
+                    margin-left: 10em;
+                    margin-top: 1.5em;
+                    width: 65%;
+                }
+            }
+
+            .social-media{
+                margin-top: 1em;
+                text-align: left;
+                margin-left: 9.5em;
+
+                i{
+                    cursor: pointer;
+                    color: #4D3A99;
+                    font-size: 1.5rem;
+                    padding: 12px 12px 8px 12px;
+                    border-radius: 100%;
+                }
+            
+            }
+
+            .image-perfil{
+                width: 45vw;
+                height: 60vh;
+
+                .back{
+                    width: 23em;
+                    height: 32em;
+                    right: 10em;
+                    top: 11em;
+                    z-index: 0;
+                    position: absolute;
+                    transform: rotate(-7.55deg);
+                }
+
+               .image{
+                    width: 20em;
+                    height: 30em;
+                    right: 10em;
+                    top: 12em;
+                    z-index: 2;
+                    position: absolute;
+                }
+            }
+        }
+    }
+
 }
 
 .nav-bar {
     background-color: rgb(255, 255, 255);
     position: fixed;
     width: 100%;
-    z-index: 3;
+    z-index: -1;
     width: 100%;
     margin-top: 0% !important;
 
@@ -45,7 +153,7 @@ main.myProfile{
                 display: none;
 
                 :hover {
-                    background-color: purple;
+                    background-color: #4D3A99;
                     border-radius: 30px;
                     color: #fff;
                 }
@@ -62,6 +170,7 @@ main.myProfile{
         }
     }
 
+  
 }
 
 .nav-bar .logo {
@@ -80,7 +189,7 @@ main.myProfile{
     align-items: center;
 
     .navicon {
-        background: purple;
+        background: #4D3A99;
         display: block;
         height: 2px;
         position: relative;
@@ -90,7 +199,7 @@ main.myProfile{
 
     .navicon:before,
     .navicon:after {
-        background: purple;
+        background: #4D3A99;
         content: '';
         display: block;
         height: 100%;
@@ -123,7 +232,7 @@ main.myProfile{
     padding: 10px;
     
     :hover {
-        background-color: purple;
+        background-color: #4D3A99;
         border-radius: 20px;
         color: #fff;
     }
@@ -147,12 +256,12 @@ main.myProfile{
 
 .nav-bar .menu-btn:checked~.menu-icon .navicon:before {
     transform: rotate(-45deg);
-    background-color: purple;
+    background-color: #4D3A99;
 }
 
 .nav-bar .menu-btn:checked~.menu-icon .navicon:after {
     transform: rotate(45deg);
-    background-color: purple;
+    background-color: #4D3A99;
 }
 
 .container .container:target ~ .menu {
@@ -175,7 +284,7 @@ main.myProfile{
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        z-index: 1;
+        z-index: 0;
 
         .logo {
             display: block;
@@ -208,7 +317,7 @@ main.myProfile{
 
 
                 :hover {
-                    background-color: purple;
+                    background-color: #4D3A99;
                     border-radius: 30px;
                     color: white;
                 }
