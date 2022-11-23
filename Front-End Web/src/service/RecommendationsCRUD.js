@@ -30,7 +30,7 @@ export function editRecommendation(recommendationBodyForEdit){
             document.location.reload(true);
         })
         .catch((error) => {
-            console.log("[!] Error trying to edit skill")
+            console.log("[!] Error trying to edit skill", error)
         });
 }
 

@@ -62,7 +62,7 @@ export const RecommendationComponent = _ => {
     }
 
     const [recommendationDescriptionForEdit, setRecommendationDescriptionForEdit] = useState("")
-    const recommendationBodyForEdit = {
+    let recommendationBodyForEdit = {
         description: recommendationDescriptionForEdit,
         userRecommended: {id: 1},
         userWhoRecommended: {id: 2}
@@ -102,7 +102,7 @@ export const RecommendationComponent = _ => {
                         <input 
                         type="text" 
                         defaultValue={recommendationForEdit.description}
-                        onChange={(e) => {setRecommendationDescription(e.target.value)}}
+                        onChange={(e) => {setRecommendationDescriptionForEdit(e.target.value)}}
                         id={"recommendationDescriptionInput"}
                         />
                         <div className="buttons">
