@@ -5,6 +5,7 @@ import image1 from '../assets/images/image1.png'
 import image2 from '../assets/images/image2.png'
 import image3 from '../assets/images/image3.png'
 import { createPortfolio, editPortfolio, deletePortfolio } from '../service/PortfoliosCRUD'
+import { createPost, editPost, deletePost } from '../service/PostsCRUD'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
@@ -75,11 +76,20 @@ export const WorksComponent = _ => {
         userPortfolio: { id: 1 }
     }
 
+    const [modalPortfolioIsOpen, setModalPortfolioIsOpen] = useState(false)
+    function openCloseModalOfPortfolio() {
+        if (modalPortfolioIsOpen === false) {
+            setModalPortfolioIsOpen(true)
+        } else { 
+            setModalPortfolioIsOpen(false)
+        }
+    }
+
     const [modalAddPostIsOpen, setModalAddPostIsOpen] = useState(false)
     function openCloseModalOfPosts() {
         if (modalAddPostIsOpen === false) {
             setModalAddPostIsOpen(true)
-        } else {
+        } else { 
             setModalAddPostIsOpen(false)
         }
     }
@@ -138,7 +148,7 @@ export const WorksComponent = _ => {
     return (
         <div className="main-works">
 
-            {modalPortfolioIsOpen === true && (
+            { modalPortfolioIsOpen === true && (
                 <div className="modalPosts">
 
                     {modalAddPostIsOpen === true && (
@@ -213,21 +223,21 @@ export const WorksComponent = _ => {
 
                     {posts.length !== 0 && (
                         <article className="image-box">
-                            {posts.map(portfolio => {
+                            {posts.map(post => {
                                 return (
                                     <div key={post.id} className="box-img">
 
-                                        <button className="editPortfolio">
+                                        <button className="editPost">
                                             <i className="fi fi-br-edit" onClick={() => {
-                                                localStorage.setItem("idSelecionedForEdit", portfolio.id)
-                                                getPortfolioById(portfolio.id)
-                                                openEditModalOfPortfolio()
+                                                localStorage.setItem("idSelecionedForEdit", post.id)
+                                                getPostById(post.id)
+                                                openEditModalOfPost()
                                             }} />
                                         </button>
-                                        <button className="deletePortfolio" >
+                                        <button className="deletePost" >
                                             <i className="fi fi-br-cross" onClick={() => {
-                                                localStorage.setItem("idSelecionedForDelete", portfolio.id)
-                                                openDeleteModalOfPortfolio()
+                                                localStorage.setItem("idSelecionedForDelete", post.id)
+                                                openDeleteModalOfPost()
                                             }} />
                                         </button>
                                         <h3>{post.contentPost}</h3>
