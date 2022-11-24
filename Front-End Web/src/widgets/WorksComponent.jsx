@@ -75,8 +75,193 @@ export const WorksComponent = _ => {
         userPortfolio: { id: 1 }
     }
 
+    const [modalAddPostIsOpen, setModalAddPostIsOpen] = useState(false)
+    function openCloseModalOfPosts() {
+        if (modalAddPostIsOpen === false) {
+            setModalAddPostIsOpen(true)
+        } else {
+            setModalAddPostIsOpen(false)
+        }
+    }
+
+    const [modalEditPostIsOpen, setModalEditPostIsOpen] = useState(false)
+    function openEditModalOfPost() {
+        setModalEditPostIsOpen(true)
+    }
+    function closeEditModalOfPost() {
+        setModalEditPostIsOpen(false)
+        localStorage.removeItem("idSelecionedForEdit")
+    }
+
+    const [modalDeletePostIsOpen, setModalDeletePostIsOpen] = useState(false)
+    async function openDeleteModalOfPost() {
+        setModalDeletePostIsOpen(true)
+    }
+    function closeDeleteModalOfPost() {
+        setModalDeletePostIsOpen(false)
+        localStorage.removeItem("idSelecionedForDelete")
+    }
+
+    const [postContent, setPostContent] = useState("")
+    const postBody = {
+        contentPost: postContent,
+        portfolioFromPost: { id: 1 }
+    }
+
+    const [posts, setPosts] = useState([])
+    const getPosts = async () => {
+        await axios
+            .get("http://localhost:8080/post/")
+            .then(res => setPosts(res.data))
+            .catch(e => console.log(e))
+    }
+
+    useEffect(() => {
+        getPosts()
+        console.log(modalDeletePostIsOpen);
+    }, [modalDeletePostIsOpen])
+
+    const [postForEdit, setPostForEdit] = useState("")
+    async function getPostById() {
+        await axios
+            .get("http://localhost:8080/post/" + localStorage.getItem("idSelecionedForEdit"))
+            .then(res => setPostForEdit(res.data))
+            .catch(e => console.log(e))
+    }
+
+    const [postContentForEdit, setPostContentForEdit] = useState("")
+    let postBodyForEdit = {
+        contentPost: postContentForEdit,
+        portfolioFromPost: { id: 1 }
+    }
+
     return (
         <div className="main-works">
+
+            {modalPortfolioIsOpen === true && (
+                <div className="modalPosts">
+
+                    {modalAddPostIsOpen === true && (
+                        <div className="modal" >
+                            <div className="content">
+                                <button className="closeModal"><i className="fi fi-br-cross" onClick={openCloseModalOfPosts}></i></button>
+                                <h1 className="textModal">Adicione um novo post!</h1>
+
+                                <input
+                                    value={postContent}
+                                    onChange={(e) => {
+                                        setPostContent(e.target.value)
+                                    }}
+                                    className="inputModal"
+                                    type="text"
+                                    placeholder="Descrição do seu post" />
+                                <button className="submitNewPost" onClick={() => createPost(postBody)}>Criar Post</button>
+                            </div>
+                        </div>
+                    )}
+
+                    {modalEditPostIsOpen === true && (
+                        <div className="modalEdit">
+                            {/* USAR URL + ID NO MAP (FIND BY ID) */}
+
+                            <div key={postForEdit.id} className="content">
+                                <button className="close"><i className="fi fi-br-cross" onClick={() => closeEditModalOfPost()}></i></button>
+                                <h1>Edite sua Post !</h1>
+
+                                <input
+                                    type="text"
+                                    defaultValue={postForEdit.contentPost}
+                                    onChange={(e) => { setPostContentForEdit(e.target.value) }}
+                                    id={"postNameInput"}
+                                />
+
+                                <div className="buttons">
+                                    <button className="edit" onClick={() => {
+                                        if (postContentForEdit === undefined || postContentForEdit === "" || postContentForEdit === null){
+                                            postBodyForEdit = {
+                                                contentPost: postContentForEdit,
+                                                portfolioFromPost: { id: 1 }
+                                            }
+                                        } else {
+                                            postBodyForEdit = {
+                                                contentPost: postContentForEdit,
+                                                portfolioFromPost: { id: 1 }
+                                            }
+                                        }
+                                        editPost(postBodyForEdit)
+                                    }}>Confirmar</button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {modalDeletePostIsOpen === true && (
+                        <div className="modalDelete">
+                            <div className="content">
+                                <h1>Tem certeza que deseja deletar esse Post?</h1>
+                                <div className="buttons">
+                                    <button onClick={() => closeDeleteModalOfPost()}>Não</button>
+                                    <button onClick={() => deletePost()}>Sim</button>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {posts.length === 0 && (
+                        <h2 className="textMotivate">Adicione posts ao seu portfolio</h2>
+                    )}
+
+                    {posts.length !== 0 && (
+                        <article className="image-box">
+                            {posts.map(portfolio => {
+                                return (
+                                    <div key={post.id} className="box-img">
+
+                                        <button className="editPortfolio">
+                                            <i className="fi fi-br-edit" onClick={() => {
+                                                localStorage.setItem("idSelecionedForEdit", portfolio.id)
+                                                getPortfolioById(portfolio.id)
+                                                openEditModalOfPortfolio()
+                                            }} />
+                                        </button>
+                                        <button className="deletePortfolio" >
+                                            <i className="fi fi-br-cross" onClick={() => {
+                                                localStorage.setItem("idSelecionedForDelete", portfolio.id)
+                                                openDeleteModalOfPortfolio()
+                                            }} />
+                                        </button>
+                                        <h3>{post.contentPost}</h3>
+                                    </div>
+                                )
+                            })
+                            }
+                        </article>
+                    )}
+                </div>
+            )}
+
+            {/* <div className="content">
+                <button className="closeModal"><i className="fi fi-br-cross" onClick={openCloseModalOfPortfolios}></i></button>
+                <h1 className="textModal">Adicione sua nova portfolio!</h1>
+
+                <input
+                    value={portfolioName}
+                    onChange={(e) => {
+                        setPortfolioName(e.target.value)
+                    }}
+                    className="inputModal"
+                    type="text"
+                    placeholder="Nome da sua especialidade" />
+                <input
+                    value={portfolioDescription}
+                    onChange={(e) => {
+                        setPortfolioDescription(e.target.value)
+                    }}
+                    className="inputModal"
+                    type="text"
+                    placeholder="Descrição da sua especialidade" />
+                <button className="submitNewPortfolio" onClick={() => createPortfolio(portfolioBody)}>Criar Portfolio</button>
+            </div> */}
 
             {modalAddPortfolioIsOpen === true && (
                 <div className="modal" >
@@ -169,9 +354,9 @@ export const WorksComponent = _ => {
             <h4>-WORKS</h4>
 
             <div className="header">
-                    <h1>Portfólio</h1>
-                    <button className="newPortfolio" onClick={openCloseModalOfPortfolios}><i className="fi fi-br-plus"></i></button>
-                    {/* <img src={left} alt="left" className="back" />
+                <h1>Portfólio</h1>
+                <button className="newPortfolio" onClick={openCloseModalOfPortfolios}><i className="fi fi-br-plus"></i></button>
+                {/* <img src={left} alt="left" className="back" />
                     <img src={right} alt="right" className="back" /> */}
             </div>
 

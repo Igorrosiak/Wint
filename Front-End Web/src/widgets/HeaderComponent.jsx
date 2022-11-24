@@ -1,9 +1,8 @@
 import logoWint from '../assets/images/logo-completa-wint.svg'
 import backgroundImage from '../assets/images/background-image.svg'
 import imagePerfil from '../assets/images/image-teste-perfil.svg'
-import '../assets/scss/profileView.scss'
-import '../assets/scss/navbar.scss'
-import { IoIosHeart } from "react-icons/io";
+import '../assets/scss/header.scss'
+/* import { IoIosHeart } from "react-icons/io"; */
 
 
 export const HeaderComponent = _ => {
@@ -28,6 +27,7 @@ export const HeaderComponent = _ => {
                     </li>
                 </ul>
             </div>
+            
             <div className="body-header">
                 <div className="col">
                     <div className="class-component">
@@ -51,8 +51,8 @@ export const HeaderComponent = _ => {
 
                 <div className="col">
                     <div className="image-perfil">
-                        <img src={backgroundImage}  className="back"/>
-                        <img src={imagePerfil} className="image" />
+                        <img src={backgroundImage}  className="back" alt="imagePerfil" />
+                        <img src={imagePerfil} className="image" alt="imagePerfil" />
                     </div>
                 </div>
             </div>
