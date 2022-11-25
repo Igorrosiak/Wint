@@ -14,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("portfolio")
+@CrossOrigin("*")
 public class PortfolioController {
 
     @Autowired

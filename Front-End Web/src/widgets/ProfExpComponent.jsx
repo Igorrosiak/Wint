@@ -93,7 +93,7 @@ export const ProfExpComponent = _ => {
                 <div className="modal" >
                     <div className="content">
                         <button className="closeModal"><i className ="fi fi-br-cross" onClick={openCloseModalOfProfExp}></i></button>
-                        <h1 className="textModal">Adicione sua nova Experiência Profissional!</h1>
+                        <h1 className="textModal">Adicione uma nova Experiência Profissional!</h1>
 
                         <input
                             value={profExpCompany}

@@ -75,7 +75,7 @@ export const RecommendationComponent = _ => {
                 <div className="modal" >
                     <div className="content">
                         <button className="closeModal"><i className ="fi fi-br-cross" onClick={openCloseModalOfRecommendation}></i></button>
-                        <h1 className="textModal">Adicione uma recomendaçao!</h1>
+                        <h1 className="textModal">Adicione uma recomendação!</h1>
 
                         <input
                             value={recommendationDescription}
@@ -97,7 +97,7 @@ export const RecommendationComponent = _ => {
 
                     <div key={recommendationForEdit.id} className="content"> 
                         <button className="close"><i className ="fi fi-br-cross" onClick={() => closeEditModalOfRecommendation()}></i></button>
-                        <h1>Edite sua Skill !</h1>
+                        <h1>Edite sua Recomendação !</h1>
                         
                         <input 
                         type="text" 
@@ -130,7 +130,7 @@ export const RecommendationComponent = _ => {
             { modalDeleteRecommendationIsOpen === true &&(
                 <div className="modalDelete">
                     <div className="content">
-                        <h1>Tem certeza que deseja deletar essa skill?</h1>
+                        <h1>Tem certeza que deseja deletar essa recomendação?</h1>
                         <div className="buttons">
                             <button onClick={() => closeDeleteModalOfRecommendation()}>Não</button>
                             <button onClick={() => deleteRecommendation()}>Sim</button>

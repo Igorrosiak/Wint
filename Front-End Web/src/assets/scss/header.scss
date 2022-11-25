@@ -5,26 +5,76 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 
 main.myProfile{
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color:#FFF;
     color: black;
-    z-index: 0;
+
+    .nav-bar {
+        background-color: rgb(255, 255, 255);
+        position: fixed;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        z-index: 2;
+        box-shadow: 0.1px 0.1px 15px 0.1px rgba(77, 77, 77, 0.192);
+        padding-top: 2% !important;
+        padding-bottom: 2% !important;
+
+        .menu {
+            clear: both;
+            max-height: 0;
+            transition: max-height .2s ease-out;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+    
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                overflow: hidden;
+                background-color: #fff;
+                flex-direction: column;
+                width: 100%;
+    
+                .menu-item {
+                    width: 100%;
+                    display: none;
+    
+                    :hover {
+                        background-color: #4D3A99;
+                        border-radius: 30px;
+                        color: #fff;
+                    }
+    
+                    a {
+                        display: block;
+                        text-decoration: none !important;
+                        text-align: left;
+                        padding: 10px 30px;
+                        color: #232E35;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
 
     .body-header{
         width: 100vw;
-        height: 100vh;
+        height: 50vh;
         display: flex;
         flex-direction: row;
+        margin-top: 15%;
         
         .col{
-            margin-top: 20em;
             width: 45vw;
             height: 45vh;
 
@@ -62,7 +112,6 @@ main.myProfile{
                     #last{
                         color: #4D3A99;
                     }
-                    
                 }
 
                 p{
@@ -102,9 +151,8 @@ main.myProfile{
                 .back{
                     width: 23em;
                     height: 32em;
-                    right: 10em;
-                    top: 11em;
-                    z-index: 0;
+                    right: 9em;
+                    top: 6em;
                     position: absolute;
                     transform: rotate(-7.55deg);
                 }
@@ -113,64 +161,14 @@ main.myProfile{
                     width: 20em;
                     height: 30em;
                     right: 10em;
-                    top: 12em;
-                    z-index: 2;
+                    top: 7em;
+                    z-index: 1;
                     position: absolute;
                 }
             }
         }
     }
 
-}
-
-.nav-bar {
-    background-color: rgb(255, 255, 255);
-    position: fixed;
-    width: 100%;
-    z-index: -1;
-    width: 100%;
-    margin-top: 0% !important;
-
-    .menu {
-        clear: both;
-        max-height: 0;
-        transition: max-height .2s ease-out;
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-
-        ul {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            overflow: hidden;
-            background-color: #fff;
-            flex-direction: column;
-            width: 100%;
-
-            .menu-item {
-                width: 100%;
-                display: none;
-
-                :hover {
-                    background-color: #4D3A99;
-                    border-radius: 30px;
-                    color: #fff;
-                }
-
-                a {
-                    display: block;
-                    text-decoration: none !important;
-                    text-align: left;
-                    padding: 10px 30px;
-                    color: #232E35;
-                    width: 100%;
-                }
-            }
-        }
-    }
-
-  
 }
 
 .nav-bar .logo {
@@ -276,15 +274,10 @@ main.myProfile{
 @media (min-width: 850px) {
 
     .nav-bar {
-        width: 90%;
-        background-color: transparent;
-
-        margin-top: 5.5% !important;
-
+        background-color: white;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        z-index: 0;
 
         .logo {
             display: block;
@@ -335,4 +328,3 @@ main.myProfile{
         }
     }
 }
-
