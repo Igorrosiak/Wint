@@ -14,7 +14,6 @@ main.myProfile{
     flex-direction: column;
     background-color:#FFF;
     color: black;
-    z-index: 0;
 
     .nav-bar {
         background-color: rgb(255, 255, 255);
@@ -23,7 +22,11 @@ main.myProfile{
         display: flex;
         align-items: center;
         justify-content: space-around;
-    
+        z-index: 2;
+        box-shadow: 0.1px 0.1px 15px 0.1px rgba(77, 77, 77, 0.192);
+        padding-top: 2% !important;
+        padding-bottom: 2% !important;
+
         .menu {
             clear: both;
             max-height: 0;
@@ -66,12 +69,12 @@ main.myProfile{
 
     .body-header{
         width: 100vw;
-        height: 100vh;
+        height: 50vh;
         display: flex;
         flex-direction: row;
+        margin-top: 15%;
         
         .col{
-            margin-top: 20em;
             width: 45vw;
             height: 45vh;
 
@@ -148,9 +151,8 @@ main.myProfile{
                 .back{
                     width: 23em;
                     height: 32em;
-                    right: 10em;
-                    top: 11em;
-                    z-index: 0;
+                    right: 9em;
+                    top: 6em;
                     position: absolute;
                     transform: rotate(-7.55deg);
                 }
@@ -159,8 +161,8 @@ main.myProfile{
                     width: 20em;
                     height: 30em;
                     right: 10em;
-                    top: 12em;
-                    z-index: 2;
+                    top: 7em;
+                    z-index: 1;
                     position: absolute;
                 }
             }
@@ -272,15 +274,10 @@ main.myProfile{
 @media (min-width: 850px) {
 
     .nav-bar {
-        width: 90%;
-        background-color: transparent;
-
-        margin-top: 5.5% !important;
-
+        background-color: white;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        z-index: 0;
 
         .logo {
             display: block;
@@ -331,4 +328,3 @@ main.myProfile{
         }
     }
 }
-

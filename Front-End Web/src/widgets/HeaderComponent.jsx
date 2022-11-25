@@ -31,7 +31,7 @@ export const HeaderComponent = _ => {
             <div className="body-header">
                 <div className="col">
                     <div className="class-component">
-                        <p>- HELLO WORD</p>
+                        <p>- HELLO WORLD</p>
                     </div>
 
                     <div className="infos">
