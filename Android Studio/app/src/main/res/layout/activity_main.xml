@@ -19,14 +19,15 @@
             android:id="@+id/textView"
             android:layout_width="259dp"
             android:layout_height="27dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="36dp"
             android:onClick="abrirCadastro"
             android:text="NÃO TEM UMA CONTA? CADASTRE-SE"
             android:textColor="#2C1586"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintHorizontal_bias="0.625"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
-            app:layout_constraintTop_toBottomOf="@+id/buttonEntrar"
+            app:layout_constraintTop_toBottomOf="@+id/button3"
             tools:ignore="TouchTargetSizeCheck" />
 
         <TextView
@@ -38,20 +39,6 @@
             android:textColor="#2C1586"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword4" />
-
-        <Button
-            android:id="@+id/buttonEntrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="57dp"
-            android:backgroundTint="#2C1586"
-            android:linksClickable="false"
-            android:onClick="abrirFeed"
-            android:text="entrar"
-            app:layout_constraintEnd_toStartOf="@+id/guideline3"
-            app:layout_constraintHorizontal_bias="0.51"
-            app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword4" />
 
         <EditText
@@ -106,7 +93,21 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/logo"
-            tools:layout_editor_absoluteY="46dp" />
+            tools:layout_editor_absoluteY="46dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:backgroundTint="#2C1586"
+            android:onClick="meuPerfil"
+            android:text="Entrar"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

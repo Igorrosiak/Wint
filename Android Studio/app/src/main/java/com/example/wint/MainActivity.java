@@ -14,13 +14,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void abrirCadastro(View v){
-        Intent intent = new Intent(getApplicationContext(), CadastrarActivity.class);
+    public void meuPerfil(View view){
+        Intent intent = new Intent(getApplicationContext(), MeuPerfil.class);
         startActivity(intent);
     }
 
-    public void abrirFeed(View v){
-        Intent intent = new Intent(getApplicationContext(), FeedActivity.class);
+
+    public void abrirCadastro(View v){
+        Intent intent = new Intent(getApplicationContext(), CadastrarActivity.class);
         startActivity(intent);
     }
 

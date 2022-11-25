@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:background="#2D453C5E"
             android:onClick="voltar"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
@@ -30,29 +30,29 @@
             android:id="@+id/editTextTextPersonName2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="132dp"
+            android:layout_marginTop="4dp"
             android:backgroundTint="#2C1586"
             android:ems="10"
             android:hint="Nome:"
             android:inputType="textPersonName"
             android:textColorHint="#2C1586"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
-            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintHorizontal_bias="0.513"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
         <EditText
             android:id="@+id/editTextTextPersonName3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="16dp"
             android:backgroundTint="#2C1586"
             android:ems="10"
             android:hint="Sobrenome:"
             android:inputType="textPersonName"
             android:textColorHint="#2C1586"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
-            app:layout_constraintHorizontal_bias="0.513"
+            app:layout_constraintHorizontal_bias="0.486"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
             app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
@@ -150,7 +150,7 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
             android:backgroundTint="#2C1586"
             android:text="Salvar"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
@@ -172,41 +172,14 @@
             app:layout_constraintGuide_percent="0.8" />
 
         <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="63dp"
-            android:layout_height="65dp"
-            android:layout_marginStart="96dp"
-            android:layout_marginTop="48dp"
-            android:background="#403D3D"
+            android:id="@+id/imageView11"
+            android:layout_width="330dp"
+            android:layout_height="220dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            app:srcCompat="@drawable/gabrielasenna"
+            tools:layout_editor_absoluteY="16dp" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="64dp"
-            android:fontFamily="sans-serif"
-            android:text="Nome de usuário aqui"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/guideline9"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView5"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="124dp"
-            android:layout_marginTop="8dp"
-            android:text="Biografia"
-            android:textStyle="italic"
-            app:layout_constraintEnd_toStartOf="@+id/guideline9"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/imageView5"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

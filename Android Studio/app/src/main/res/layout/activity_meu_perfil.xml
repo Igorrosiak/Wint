@@ -10,33 +10,125 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MeuPerfilActivity">
+        tools:context=".MeuPerfil">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="149dp"
+            android:layout_height="93dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logoroxa" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:onClick="sair"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline11"
+            app:srcCompat="@drawable/ic_baseline_exit_to_app_24"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="431dp"
+            android:layout_height="223dp"
+            android:layout_marginTop="120dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.057"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/gabrielasenna" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="48dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="209dp"
+            android:layout_marginTop="16dp"
+            android:onClick="perfil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/config"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="246dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="48dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline11"
+            app:layout_constraintStart_toStartOf="@+id/guideline12"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:srcCompat="@drawable/skills" />
 
         <ImageView
             android:id="@+id/imageView7"
-            android:layout_width="249dp"
-            android:layout_height="90dp"
-            app:srcCompat="@drawable/logoroxa"
-            tools:layout_editor_absoluteX="-33dp"
-            tools:layout_editor_absoluteY="2dp" />
+            android:layout_width="216dp"
+            android:layout_height="138dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline11"
+            app:layout_constraintHorizontal_bias="0.468"
+            app:layout_constraintStart_toStartOf="@+id/guideline12"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            app:srcCompat="@drawable/desing" />
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="233dp"
+            android:layout_height="139dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline11"
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintStart_toStartOf="@+id/guideline12"
+            app:layout_constraintTop_toBottomOf="@+id/imageView7"
+            app:srcCompat="@drawable/app" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8004866" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
 
         <ImageView
             android:id="@+id/imageView12"
-            android:layout_width="148dp"
-            android:layout_height="226dp"
-            android:onClick="perfil"
-            app:srcCompat="@drawable/user"
-            tools:layout_editor_absoluteX="296dp"
-            tools:layout_editor_absoluteY="-66dp" />
+            android:layout_width="226dp"
+            android:layout_height="141dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline11"
+            app:layout_constraintHorizontal_bias="0.681"
+            app:layout_constraintStart_toStartOf="@+id/guideline12"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10"
+            app:srcCompat="@drawable/gestao" />
 
-        <ImageView
-            android:id="@+id/imageView13"
-            android:layout_width="41dp"
-            android:layout_height="53dp"
-            android:onClick="sair"
-            app:srcCompat="@drawable/ic_baseline_exit_to_app_24"
-            tools:layout_editor_absoluteX="354dp"
-            tools:layout_editor_absoluteY="662dp" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Para ver mais utulize o web"
+            app:layout_constraintTop_toBottomOf="@+id/imageView12"
+            tools:layout_editor_absoluteX="120dp"
+            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

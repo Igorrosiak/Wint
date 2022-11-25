@@ -14,7 +14,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_editar_perfil);
     }
     public void voltar(View v) {
-        Intent intent = new Intent(getApplicationContext(), FeedActivity.class);
+        Intent intent = new Intent(getApplicationContext(), MeuPerfil.class);
         startActivity(intent);
     }
 }

@@ -14,16 +14,13 @@
         android:theme="@style/Theme.Wint"
         tools:targetApi="31">
         <activity
-            android:name=".MeuPerfilActivity"
+            android:name=".MeuPerfil"
             android:exported="false" />
         <activity
             android:name=".EditarPerfilActivity"
             android:exported="false" />
         <activity
             android:name=".RecSenhaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".FeedActivity"
             android:exported="false" />
         <activity
             android:name=".CadastrarActivity"

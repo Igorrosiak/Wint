@@ -6,25 +6,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class FeedActivity extends AppCompatActivity {
+public class MeuPerfil extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed);
+        setContentView(R.layout.activity_meu_perfil);
     }
     public void sair(View v){
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
-    public void teste(View v){
+    public void perfil(View v){
         Intent intent = new Intent(getApplicationContext(), EditarPerfilActivity.class);
         startActivity(intent);
     }
-
-    public void perfil(View v){
-        Intent intent = new Intent(getApplicationContext(), MeuPerfilActivity.class);
-        startActivity(intent);
-    }
-
 }
