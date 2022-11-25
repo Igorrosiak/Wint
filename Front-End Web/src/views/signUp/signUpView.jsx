@@ -52,7 +52,7 @@ export const SignUpView = _ => {
                 </div>
 
                 <div className="button-singup">
-                    <button>Cadastrar</button>
+                    <button><a href="/">Cadastrar</a></button>
                 </div>
             </main>
         </>

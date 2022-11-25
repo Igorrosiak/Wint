@@ -18,7 +18,8 @@ export const ProfileView = _ => {
 
     return (
         <>
-            { /* animaionDidEnd ? */
+            {
+                animaionDidEnd ? 
                 <>
                 <HeaderComponent /> 
                 <SkillsComponent /> 
@@ -26,7 +27,7 @@ export const ProfileView = _ => {
                 <ProfExpComponent />
                 <BlogComponent/>
                 <RecommendationComponent />
-                </> /* : <Animation />  */
+                </> : <Animation />  
             }
         </>
     )

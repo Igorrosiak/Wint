@@ -28,8 +28,8 @@ export const SignInView = _ => {
                         </div>
 
                         <div className="button-form">
-                            <button>Entrar</button>
-                            <p>Ainda não tem uma conta? <b><a href="">Registre-se aqui!</a></b></p>
+                            <button><a href="/perfil">Entrar</a></button>
+                            <p>Ainda não tem uma conta? <b><a href="/registro">Registre-se aqui!</a></b></p>
                         </div>
                     </div>
                     <div className="logo">
