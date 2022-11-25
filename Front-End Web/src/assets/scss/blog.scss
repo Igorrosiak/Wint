@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap'); 
+
+article.main{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+h1{
+    width: 224px;
+    height: 45px;
+    left: 0px;
+    top: 33px;
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 45px;
+    margin-bottom: 3.5em;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    color: #232E35;
+}
+
+p.desc-1{
+    height: 24px;
+    left: 16px;
+    top: 16px;
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 50px;
+    color: #232E35;
+}
+
+p.desc-2{
+    height: 24px;
+    left: 16px;
+    top: 16px;
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 50px;
+    color: #232E35;
+}
+
+p.desc-3{
+    height: 24px;
+    left: 16px;
+    top: 16px;
+    font-family: 'Plus Jakarta Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 50px;
+    color: #232E35;
+}
+
+p.date-1{
+    width: 120px;
+    height: 15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 45px;
+    color: #656D72;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+p.date-2{
+    width: 130px;
+    height: 15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 45px;
+    color: #656D72;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+p.date-3{
+    width: 134px;
+    height: 15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 45px;
+    color: #656D72;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+p.txt-1{
+    width:330px;
+    height: 96px;
+    left: 16px;
+    top: 95px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: left;
+    color: #656D72;
+    padding-top: 25px;
+    padding-left: 15px;
+}
+
+p.txt-2{
+    width: 330px;
+    height: 96px;
+    left: 16px;
+    top: 95px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: left;
+    color: #656D72;
+    padding-top: 25px;
+    padding-left: 20px;
+}
+
+p.txt-3{
+    width: 340px;
+    height: 96px;
+    left: 16px;
+    top: 95px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: left;
+    color: #656D72;
+    padding-top: 25px;
+    padding-left: 22px;
+}
+
+p.p-1{
+    width: 150px;
+    height: 20px;;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #656D72;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 22px;
+    margin-top: 5em;
+}
+
+p.p-2{
+    width: 120px;
+    height: 17px;
+    left: 121px;
+    top: 233px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #656D72;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 10px;
+    padding-bottom: 5em;
+    margin-top: 5em;
+}
+
+p.p-3{
+    width: 120px;
+    height: 17px;
+    left: 121px;
+    top: 233px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #656D72;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 10px;
+    margin-top: 5em;
+}
+
+
+div.images-box{
+    display: flex;
+    justify-content: space-evenly;
+    
+
+    div.box{        
+        box-sizing: border-box;
+        border-width: 0px 1px 1px 1px;
+        border-style: solid;
+        border-color: #F1F1F1;
+        border-radius: 0px 0px 8px 8px;
+
+        img{
+            width: 380px;
+            height: 243px;
+            left: 0px;
+            top: 0px;
+            border-radius: 8px 8px 0px 0px;
+        }
+    }
+}
