@@ -14,6 +14,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("blog")
+@CrossOrigin("*")
 public class BlogController {
 
     @Autowired

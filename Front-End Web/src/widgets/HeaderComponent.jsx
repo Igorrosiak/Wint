@@ -1,6 +1,9 @@
 import logoWint from '../assets/images/logo-completa-wint.svg'
-import '../assets/scss/profileView.scss'
-import '../assets/scss/navbar.scss'
+import backgroundImage from '../assets/images/background-image.svg'
+import imagePerfil from '../assets/images/image-teste-perfil.svg'
+import '../assets/scss/header.scss'
+/* import { IoIosHeart } from "react-icons/io"; */
+
 
 export const HeaderComponent = _ => {
     return (
@@ -23,6 +26,35 @@ export const HeaderComponent = _ => {
                         <a href='#prices' className="menu-link">Blog</a>
                     </li>
                 </ul>
+            </div>
+            
+            <div className="body-header">
+                <div className="col">
+                    <div className="class-component">
+                        <p>- HELLO WORLD</p>
+                    </div>
+
+                    <div className="infos">
+                        <div className='name'>
+                            <h2 id='first'>Gabriela</h2><h2 id='last'>Senna</h2>
+                        </div>
+                        <p>Seja bem vindo ao meu portfolio virtual da Wint, aqui voce encontrara meus trabalhos do senai, cursos especializantes e demais areas que mando bem! </p>
+                    </div>
+
+                    <div className="social-media">
+                        <i class="fi fi-brands-instagram"></i>
+                        <i class="fi fi-brands-twitter"></i>
+                        <i class="fi fi-brands-linkedin"></i>
+                        <i class="fi fi-brands-github"></i>
+                    </div>
+                </div>
+
+                <div className="col">
+                    <div className="image-perfil">
+                        <img src={backgroundImage}  className="back" alt="imagePerfil" />
+                        <img src={imagePerfil} className="image" alt="imagePerfil" />
+                    </div>
+                </div>
             </div>
         </main>
     )
