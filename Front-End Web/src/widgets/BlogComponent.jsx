@@ -1,7 +1,7 @@
 import '../assets/scss/blog.scss'
-import ImgLeft from '../assets/images/img-left.png'
-import ImgRight from '../assets/images/img-right.png'
-import ImgCenter from '../assets/images/center.png'
+import notebook from '../assets/images/img-left.png'
+import accordion from '../assets/images/img-right.png'
+import notion from '../assets/images/center.png'
 import { createBlog, editBlog, deleteBlog } from '../service/BlogsCRUD'
 import { useState } from 'react'
 import { useEffect } from 'react'
@@ -34,6 +34,20 @@ export const BlogComponent = _ => {
     function closeDeleteModalOfBlog(){
         setModalDeleteBlogIsOpen(false)
         localStorage.removeItem("idSelecionedForDelete")
+    }
+
+    let imagemAtual = ""
+    function handleId(){
+        if(imagemAtual === "notebook"){
+            imagemAtual = "notion"
+            return notion
+        } else if(imagemAtual === "notion"){
+            imagemAtual = "accordion"
+            return accordion
+        } else{
+            imagemAtual = "notebook"
+            return notebook
+        }
     }
 
     const [blogName, setBlogName] = useState("")
@@ -191,7 +205,7 @@ export const BlogComponent = _ => {
                                         }}/>
                                     </button>
                                     
-                                    <img src={ImgLeft} alt="left" />
+                                    <img src={handleId()} alt="left" />
                                     <p className="desc">{blog.name}</p>
                                     <br />
                                     <p className="date">Dez 15, 2021</p>

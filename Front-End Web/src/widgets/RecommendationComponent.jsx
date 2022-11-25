@@ -2,6 +2,9 @@ import '../assets/scss/recommendation.scss'
 import { createRecommendation, editRecommendation, deleteRecommendation } from '../service/RecommendationsCRUD'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import romana from '../assets/images/romana.png'
+import roberto from '../assets/images/roberto.png'
+import roberta from '../assets/images/roberta.png'
 import axios from 'axios'
 
 export const RecommendationComponent = _ => {
@@ -12,7 +15,7 @@ export const RecommendationComponent = _ => {
             setModalAddRecommendationIsOpen(true)
         } else{
             setModalAddRecommendationIsOpen(false)
-        } 
+        }
     }
 
     const [modalEditRecommendationIsOpen, setModalEditRecommendationIsOpen] = useState(false)
@@ -31,6 +34,34 @@ export const RecommendationComponent = _ => {
     function closeDeleteModalOfRecommendation(){
         setModalDeleteRecommendationIsOpen(false)
         localStorage.removeItem("idSelecionedForDelete")
+    }
+
+    let imagemAtual = ""
+    function handleImage(){
+        if(imagemAtual === "roberto"){
+            imagemAtual = "roberta"
+            return roberta
+        } else if(imagemAtual === "roberta"){
+            imagemAtual = "romana"
+            return romana
+        } else{
+            imagemAtual = "roberto"
+            return roberto
+        }
+    }
+
+    let nomeAtual = ""
+    function handleNome(){
+        if(nomeAtual === "roberto"){
+            nomeAtual = "roberta"
+            return "Roberta"
+        } else if(nomeAtual === "roberta"){
+            nomeAtual = "romana"
+            return "Romana"
+        } else{
+            nomeAtual = "roberto"
+            return "Roberto"
+        }
     }
 
     const [recommendationDescription, setRecommendationDescription] = useState("")
@@ -155,8 +186,6 @@ export const RecommendationComponent = _ => {
                 <article className="rowSkills">
                     {
                         recommendations.map(recommendation => {
-                            console.log(recommendation)
-                            console.log(recommendation.userRecommended)
                             return(
                                 <div key={recommendation.id} className="cardSkill">
                                     <button className="editSkill">
@@ -172,9 +201,9 @@ export const RecommendationComponent = _ => {
                                             openDeleteModalOfRecommendation()
                                         }}/>
                                     </button>
+                                    <img src={handleImage()} alt="Alternativo" />
+                                    <p>{handleNome()}</p>        
                                     <h3>{recommendation.description}</h3>
-                                    <h3>{recommendation.userRecommended}</h3>
-                                    <h3>{recommendation.userWhoRecommended}</h3>
                                 </div>
                             )
                         })

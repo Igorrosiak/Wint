@@ -1,9 +1,10 @@
 import '../assets/scss/works.scss'
 import left from '../assets/images/Left.png'
 import right from '../assets/images/Right.png'
-import image1 from '../assets/images/image1.png'
-import image2 from '../assets/images/image2.png'
-import image3 from '../assets/images/image3.png'
+import qrcode from '../assets/images/qrcode.png'
+import cyber from '../assets/images/image1.png'
+import java from '../assets/images/image2.png'
+import react from '../assets/images/image3.png'
 import { createPortfolio, editPortfolio, deletePortfolio } from '../service/PortfoliosCRUD'
 import { createPost, editPost, deletePost } from '../service/PostsCRUD'
 import { useState } from 'react'
@@ -37,6 +38,20 @@ export const WorksComponent = _ => {
     function closeDeleteModalOfPortfolio() {
         setModalDeletePortfolioIsOpen(false)
         localStorage.removeItem("idSelecionedForDelete")
+    }
+
+    let imagemAtual = ""
+    function handleId(){
+        if(imagemAtual === "cyber"){
+            imagemAtual = "java"
+            return java
+        } else if(imagemAtual === "java"){
+            imagemAtual = "react"
+            return react
+        } else{
+            imagemAtual = "cyber"
+            return cyber
+        }
     }
 
     const [portfolioName, setPortfolioName] = useState("")
@@ -218,9 +233,9 @@ export const WorksComponent = _ => {
                         )}
 
                         <div className="header">
-                            <h1>Portfólios</h1>
-                            <button className="newPortfolio" onClick={openCloseModalOfPortfolio}><i className="fi fi-br-cross"></i></button>
-                            <button className="newPortfolio" onClick={openCloseModalOfPosts}><i className="fi fi-br-plus"></i></button>
+                            <h1>Posts</h1>
+                            <button className="closePortfolio" onClick={openCloseModalOfPortfolio}><i className="fi fi-br-cross"></i></button>
+                            <button className="newPost" onClick={openCloseModalOfPosts}><i className="fi fi-br-plus"></i></button>
                             {/*<img src={left} alt="left" className="back" />
                             <img src={right} alt="right" className="back" /> */}
                         </div>
@@ -230,33 +245,27 @@ export const WorksComponent = _ => {
                         )}
 
                         {posts.length !== 0 && (
-                            <article className="image-box">
+                            <article className="rowPosts">
                                 {posts.map(post => {
-                                    // {
-                                        // localStorage.getItem("idSelecionedForView") === post.portfolioFromPost && (
-                                        
-                                            <div key={post.id} className="box-img">
-                                                <div>
-                                                    <button className="editPost">
-                                                        <i className="fi fi-br-edit" onClick={() => {
-                                                            localStorage.setItem("idSelecionedForEdit", post.id)
-                                                            getPostById(post.id)
-                                                            openEditModalOfPost()
-                                                        }} />
-                                                    </button>
-                                                    <button onClick={console.log(post.portfolioFromPost)}>CLIQUEEEEEEE</button>
-                                                    <button className="deletePost" >
-                                                        <i className="fi fi-br-cross" onClick={() => {
-                                                            localStorage.setItem("idSelecionedForDelete", post.id)
-                                                            openDeleteModalOfPost()
-                                                        }} />
-                                                    </button>
-                                                    <h3>{post.contentPost}</h3>
-                                                </div>
-                                            </div>
-                                        // )
-                                    // }
-
+                                    return(
+                                        <div key={post.id} className="cardPost">
+                                            <button className="editPost">
+                                                <i className="fi fi-br-edit" onClick={() => {
+                                                    localStorage.setItem("idSelecionedForEdit", post.id)
+                                                    getPostById(post.id)
+                                                    openEditModalOfPost()
+                                                }} />
+                                            </button>
+                                            <button className="deletePost" >
+                                                <i className="fi fi-br-cross" onClick={() => {
+                                                    localStorage.setItem("idSelecionedForDelete", post.id)
+                                                    openDeleteModalOfPost()
+                                                }} />
+                                            </button>
+                                            <img src={qrcode} alt="" />
+                                            <h3>{post.contentPost}</h3>
+                                        </div>
+                                    )    
                                 })}
                             </article>
                         )}
@@ -414,8 +423,7 @@ export const WorksComponent = _ => {
                                     }} />
                                 </button>
 
-
-                                <img src={image1} />
+                                <img src={handleId()} />
 
                                 <div className="cardLegend">
                                     <h3>{portfolio.name}</h3>

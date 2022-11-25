@@ -88,7 +88,7 @@ div.main-works{
                         color: black;
                     }
         
-                    button.submitNewPortfolio{
+                    button{
                         height: 2.5em;
                         width: 15em;
                         background-color: #232E35;
@@ -99,6 +99,146 @@ div.main-works{
         
                     button.submitNewPortfolio:hover{
                         background-color: #656D72;
+                    }
+                }
+            }
+
+            div.header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 3em 8% 5% 8%;
+                position: relative;
+        
+                h1{
+                    color: #232E35;
+                    font-family: 'Plus Jakarta Sans';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 36px;
+                }
+        
+                button.newPost{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    background-color: transparent;                
+                    position: absolute;
+                    width: 70%;
+                    left: 160%;
+                    top: 36%;
+                    z-index: 1;
+    
+                    i{
+                    color: #232E35;
+                    font-size: 0.9rem;
+                    padding: 12px 10px 6px 10px;
+                    border-radius: 100%;
+                    cursor: pointer;
+                    }
+    
+                    i:hover{
+                        background-color: #f0ebeb;
+                        color: #232E35;
+                    }
+                }
+    
+                button.closePortfolio{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    background-color: transparent;                
+                    position: absolute;
+                    width: 100%;
+                    top: 8%;
+                    margin-left: 99%;
+                    
+                    i{
+                    color: #232E35;
+                    font-size: 0.9rem;
+                    padding: 12px 10px 6px 10px;
+                    border-radius: 100%;
+                    cursor: pointer;
+                    }
+    
+                    i:hover{
+                        background-color: #f0ebeb;
+                        color: #232E35;
+                    }
+                }
+            }            
+
+            article.rowPosts{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+        
+                div.cardPost{
+                    width: 27.5%;
+                    height: 90%;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: white;
+                    border-radius: 7.5px;
+                    position: relative;
+                    border: 0.1px solid rgba(90, 90, 90, 0.178);
+                    padding: 0 3%;
+        
+                    button.editPost{
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        background-color: transparent;                
+                        position: absolute;
+                        width: 70%;
+                        top: 3%;
+                        z-index: 1;
+        
+                        i{
+                        color: #232E35;
+                        font-size: 0.9rem;
+                        padding: 12px 10px 6px 10px;
+                        border-radius: 100%;
+                        cursor: pointer;
+                        }
+        
+                        i:hover{
+                            background-color: #f0ebeb;
+                            color: #232E35;
+                        }
+                    }
+        
+                    button.deletePost{
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        background-color: transparent;                
+                        position: absolute;
+                        width: 100%;
+                        padding-right: 1em;
+                        top: 3%;
+        
+                        i{
+                        color: #232E35;
+                        font-size: 0.9rem;
+                        padding: 12px 10px 6px 10px;
+                        border-radius: 100%;
+                        cursor: pointer;
+                        }
+        
+                        i:hover{
+                            background-color: #f0ebeb;
+                            color: #232E35;
+                        }
+                    }
+        
+                    h3{
+                        color: #232E35;
+                        font-size: 1rem;
                     }
                 }
             }
