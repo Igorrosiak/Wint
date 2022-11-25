@@ -80,7 +80,7 @@ export const WorksComponent = _ => {
     function openCloseModalOfPortfolio() {
         if (modalPortfolioIsOpen === false) {
             setModalPortfolioIsOpen(true)
-        } else { 
+        } else {
             setModalPortfolioIsOpen(false)
         }
     }
@@ -89,7 +89,7 @@ export const WorksComponent = _ => {
     function openCloseModalOfPosts() {
         if (modalAddPostIsOpen === false) {
             setModalAddPostIsOpen(true)
-        } else { 
+        } else {
             setModalAddPostIsOpen(false)
         }
     }
@@ -115,7 +115,7 @@ export const WorksComponent = _ => {
     const [postContent, setPostContent] = useState("")
     const postBody = {
         contentPost: postContent,
-        portfolioFromPost: { id: 4 }
+        portfolioFromPost: { id: localStorage.getItem("idSelecionedForView") }
     }
 
     const [posts, setPosts] = useState([])
@@ -148,7 +148,7 @@ export const WorksComponent = _ => {
     return (
         <div className="main-works">
 
-            { modalPortfolioIsOpen === true && (
+            {modalPortfolioIsOpen === true && (
                 <div className="modalPosts">
                     <div className="content">
                         {modalAddPostIsOpen === true && (
@@ -187,7 +187,7 @@ export const WorksComponent = _ => {
 
                                     <div className="buttons">
                                         <button className="edit" onClick={() => {
-                                            if (postContentForEdit === undefined || postContentForEdit === "" || postContentForEdit === null){
+                                            if (postContentForEdit === undefined || postContentForEdit === "" || postContentForEdit === null) {
                                                 postBodyForEdit = {
                                                     contentPost: postContentForEdit,
                                                     portfolioFromPost: { id: 1 }
@@ -232,27 +232,32 @@ export const WorksComponent = _ => {
                         {posts.length !== 0 && (
                             <article className="image-box">
                                 {posts.map(post => {
-                                    return (
-                                        <div key={post.id} className="box-img">
+                                    // {
+                                        // localStorage.getItem("idSelecionedForView") === post.portfolioFromPost && (
+                                        
+                                            <div key={post.id} className="box-img">
+                                                <div>
+                                                    <button className="editPost">
+                                                        <i className="fi fi-br-edit" onClick={() => {
+                                                            localStorage.setItem("idSelecionedForEdit", post.id)
+                                                            getPostById(post.id)
+                                                            openEditModalOfPost()
+                                                        }} />
+                                                    </button>
+                                                    <button onClick={console.log(post.portfolioFromPost)}>CLIQUEEEEEEE</button>
+                                                    <button className="deletePost" >
+                                                        <i className="fi fi-br-cross" onClick={() => {
+                                                            localStorage.setItem("idSelecionedForDelete", post.id)
+                                                            openDeleteModalOfPost()
+                                                        }} />
+                                                    </button>
+                                                    <h3>{post.contentPost}</h3>
+                                                </div>
+                                            </div>
+                                        // )
+                                    // }
 
-                                            <button className="editPost">
-                                                <i className="fi fi-br-edit" onClick={() => {
-                                                    localStorage.setItem("idSelecionedForEdit", post.id)
-                                                    getPostById(post.id)
-                                                    openEditModalOfPost()
-                                                }} />
-                                            </button>
-                                            <button className="deletePost" >
-                                                <i className="fi fi-br-cross" onClick={() => {
-                                                    localStorage.setItem("idSelecionedForDelete", post.id)
-                                                    openDeleteModalOfPost()
-                                                }} />
-                                            </button>
-                                            <h3>{post.contentPost}</h3>
-                                        </div>
-                                    )
-                                })
-                                }
+                                })}
                             </article>
                         )}
                     </div>
@@ -408,7 +413,7 @@ export const WorksComponent = _ => {
                                         openEditModalOfPortfolio()
                                     }} />
                                 </button>
-                                
+
 
                                 <img src={image1} />
 

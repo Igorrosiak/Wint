@@ -119,7 +119,7 @@ export const RecommendationComponent = _ => {
                                         userRecommended: {id: 1},
                                         userWhoRecommended: {id: 2}
                                     }
-                                } 
+                                }
                                 editRecommendation(recommendationBodyForEdit)
                             }}>Confirmar</button>
                         </div>
