@@ -36,6 +36,7 @@ public class BlogServiceImpl implements BlogService{
             updateBlog.get().setName(blog.getName());
             updateBlog.get().setDescription(blog.getDescription());
             updateBlog.get().setContent(blog.getContent());
+            updateBlog.get().setData(blog.getData());
             return blogRepository.save(updateBlog.get());
         } else {
             return null;

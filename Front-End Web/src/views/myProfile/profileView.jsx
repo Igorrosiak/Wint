@@ -20,10 +20,10 @@ export const ProfileView = _ => {
         <>
             { /* animaionDidEnd ? */
                 <>
-                {/* <HeaderComponent /> 
+                <HeaderComponent /> 
                 <SkillsComponent /> 
                 <WorksComponent />
-                <ProfExpComponent /> */}
+                <ProfExpComponent />
                 <BlogComponent/>
                 <RecommendationComponent />
                 </> /* : <Animation />  */

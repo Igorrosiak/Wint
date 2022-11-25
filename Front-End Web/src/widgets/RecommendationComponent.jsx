@@ -86,7 +86,7 @@ export const RecommendationComponent = _ => {
                             type="text"
                             placeholder="Sua avaliaçao do usuario"
                         />
-                        <button className="submitNewSkill" onClick={() => createRecommendation(recommendationBody)}>Inserir Experiência Profissional</button>
+                        <button className="submitNewSkill" onClick={() => createRecommendation(recommendationBody)}>Inserir Recomendação</button>
                     </div>
                 </div>
             )}
@@ -155,6 +155,8 @@ export const RecommendationComponent = _ => {
                 <article className="rowSkills">
                     {
                         recommendations.map(recommendation => {
+                            console.log(recommendation)
+                            console.log(recommendation.userRecommended)
                             return(
                                 <div key={recommendation.id} className="cardSkill">
                                     <button className="editSkill">

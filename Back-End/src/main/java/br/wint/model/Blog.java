@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Setter
 @Entity(name = "blog")
@@ -23,6 +24,9 @@ public class Blog {
     @Getter
     @Size(max = 150)
     private String description;
+
+    @Getter
+    private Date data;
 
     @Getter
     private String content;

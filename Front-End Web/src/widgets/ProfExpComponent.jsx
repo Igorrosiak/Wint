@@ -36,14 +36,16 @@ export const ProfExpComponent = _ => {
     const [profExpCompany, setProfExpCompany] = useState("")
     const [profExpRole, setProfExpRole] = useState("")
     const [profExpPlace, setProfExpPlace] = useState("")
-    const [profExpData, setProfExpData] = useState("")
+    const [profExpStartData, setProfExpStartData] = useState("")
+    const [profExpEndData, setProfExpEndData] = useState("")
     const [profExpTag, setProfExpTag] = useState("")
     const [profExpDescription, setProfExpDescription] = useState("")
     const profExpBody = {
         company: profExpCompany,
         role: profExpRole,
         place: profExpPlace,
-        data: profExpData,
+        startData: profExpStartData,
+        endData: profExpEndData,
         tag: profExpTag,
         description: profExpDescription,
         userExperiences: {id: 1}
@@ -73,14 +75,16 @@ export const ProfExpComponent = _ => {
     const [profExpCompanyForEdit, setProfExpCompanyForEdit] = useState("")
     const [profExpRoleForEdit, setProfExpRoleForEdit] = useState("")
     const [profExpPlaceForEdit, setProfExpPlaceForEdit] = useState("")
-    const [profExpDataForEdit, setProfExpDataForEdit] = useState("")
+    const [profExpStartDataForEdit, setProfExpStartDataForEdit] = useState("")
+    const [profExpEndDataForEdit, setProfExpEndDataForEdit] = useState("")
     const [profExpTagForEdit, setProfExpTagForEdit] = useState("")
     const [profExpDescriptionForEdit, setProfExpDescriptionForEdit] = useState("")  
     let profExpBodyForEdit = {
         company: profExpCompanyForEdit,
         role: profExpRoleForEdit,
         place: profExpPlaceForEdit,
-        data: profExpDataForEdit,
+        startData: profExpStartDataForEdit,
+        endData: profExpEndDataForEdit,
         tag: profExpTagForEdit,
         description: profExpDescriptionForEdit,
         userExperiences: {id: 1}
@@ -123,13 +127,22 @@ export const ProfExpComponent = _ => {
                             placeholder="Local do seu Trabalho"
                         />
                         <input
-                            value={profExpData}
+                            value={profExpStartData}
                             onChange={(e) => {
-                                setProfExpData(e.target.value)
+                                setProfExpStartData(e.target.value)
                             }}
                             className="inputModal"
                             type="date"
-                            placeholder="Periodo de trabalho"
+                            placeholder="Data de Inicio"
+                        />
+                        <input
+                            value={profExpEndData}
+                            onChange={(e) => {
+                                setProfExpEndData(e.target.value)
+                            }}
+                            className="inputModal"
+                            type="date"
+                            placeholder="Data de encerramento"
                         />
                         <input
                             value={profExpTag}
@@ -149,7 +162,7 @@ export const ProfExpComponent = _ => {
                             type="text"
                             placeholder="Descrição do seu trabalho"
                         />
-                        <button className="submitNewSkill" onClick={() => createProfExp(profExpBody)}>Inserir Experiência Profissional</button>
+                        <button className="submitNewProfExp" onClick={() => createProfExp(profExpBody)}>Inserir Experiência Profissional</button>
                     </div>
                 </div>
             )}
@@ -227,30 +240,30 @@ export const ProfExpComponent = _ => {
             )}
 
             { profExps.length !== 0 &&(
-                <article className="rowSkills">
+                <article className="rowProfExps">
                     {
                         profExps.map(profExp => {
                             return(
-                                <div key={profExp.id} className="cardSkill">
-                                    <button className="editSkill">
+                                <div key={profExp.id} className="cardProfExp">
+                                    <button className="editProfExp">
                                         <i className="fi fi-br-edit" onClick={() => {
                                                 localStorage.setItem("idSelecionedForEdit", profExp.id)
                                                 getProfExpById(profExp.id)
                                                 openEditModalOfProfExp()
                                         }}/>
                                     </button>
-                                    <button className="deleteSkill" >
+                                    <button className="deleteProfExp">
                                         <i className="fi fi-br-cross" onClick={() => {
                                             localStorage.setItem("idSelecionedForDelete", profExp.id)
                                             openDeleteModalOfProfExp()
                                         }}/>
                                     </button>
-                                    <h3>{profExp.company}</h3>
-                                    <p>{profExp.role}</p>
-                                    <p>{profExp.place}</p>
-                                    <p>{profExp.data}</p>
-                                    <p>{profExp.tag}</p>
-                                    <p>{profExp.description}</p>
+                                    <h3>{profExp.role}</h3>
+                                    <p className="companyAndPlace">{profExp.company} - {profExp.place}</p>
+                                    <p className="dates">{profExp.startData} - {profExp.endData}</p>
+                                    <p className="tag">{profExp.tag}</p>
+                                    <hr />
+                                    <p className="description">{profExp.description}</p>
                                 </div>
                             )
                         })

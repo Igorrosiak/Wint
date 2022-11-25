@@ -27,7 +27,10 @@ public class ProfessionalExperience {
     private String place;
 
     @Getter
-    private Date data;
+    private Date startData;
+
+    @Getter
+    private Date endData;
 
     @Getter
     private String tag;
@@ -46,7 +49,8 @@ public class ProfessionalExperience {
                 ", company='" + company + '\'' +
                 ", role='" + role + '\'' +
                 ", place='" + place + '\'' +
-                ", data=" + data +
+                ", startData=" + startData +
+                ", endData=" + endData +
                 ", tag='" + tag + '\'' +
                 ", description='" + description + '\'' +
                 '}';
